@@ -2,9 +2,9 @@
 
 Simple WhatsApp Bot
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Nurutomo/wabot-aq)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AkirahX/sbot)
 
-## FOR TERMUX/UBUNTU/SSH USER
+## PARA TERMUX/UBUNTU/SSH
 
 ```bash
 apt update && apt upgrade
@@ -12,31 +12,31 @@ apt install git -y
 apt install nodejs -y
 apt install ffmpeg -y
 apt install imagemagick -y
-git clone https://github.com/Nurutomo/wabot-aq
-cd wabot-aq
+git clone https://github.com/AkirahX/sbot
+cd sbot
 npm install
 npm update
 ```
 
 ---------
 
-## FOR WINDOWS/VPS/RDP USER
+## PARA WINDOWS/VPS/RDP
 
-* Download And Install Git [`Click Here`](https://git-scm.com/downloads)
-* Download And Install NodeJS [`Click Here`](https://nodejs.org/en/download)
-* Download And Install FFmpeg [`Click Here`](https://ffmpeg.org/download.html) (**Don't Forget Add FFmpeg to PATH enviroment variables**)
-* Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
+* Download And Install Git [`Click aqui`](https://git-scm.com/downloads)
+* Download And Install NodeJS [`Click aqui`](https://nodejs.org/en/download)
+* Download And Install FFmpeg [`Click aqui`](https://ffmpeg.org/download.html) (**Não se esqueça de adicionar FFmpeg às variáveis de ambiente PATH**)
+* Download And Install ImageMagick [`Click aqui`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/Nurutomo/wabot-aq
-cd wabot-aq
+git clone https://github.com/AkirahX/sbot
+cd sbot
 npm install
 npm update
 ```
 
 ---------
 
-## Run
+## Iniciando
 
 ```bash
 node .
@@ -44,42 +44,41 @@ node .
 
 ---------
 
-## Arguments `node . [--options] [<session name>]`
+## Argumentos `node . [--options] [<session name>]`
 
 ### `--self`
 
-Activate self mode (Ignores other)
+Ativar modo próprio (ignora outro)
 
 ### `--pconly`
 
-If that chat not from private bot, bot will ignore
+Bot disponível somente para privado
 
 ### `--gconly`
 
-If that chat not from group, bot will ignore
+Bot disponível somente para grupo
 
 ### `--swonly`
 
-If that chat not from status, bot will ignore
+Stts
 
 ### `--prefix <prefixes>`
 
-* `prefixes` are seperated by each character
-Set prefix
+* `prefixes` definit prefixos
 
 ### `--server`
 
-Used for [heroku](https://heroku.com/) or scan through website
+Usado para [heroku](https://heroku.com/) ou escaneie através do site
 
 ### `--db <json-server-url>`
 
-Use external db instead of local db, 
-Example Server `https://json-server.nurutomo.repl.co/`
-Code: `https://repl.it/@Nurutomo/json-server`
+Use um banco de dados externo em vez de um banco de dados local
+Exemplo `https://json-server.akirahx.repl.co`
+Code: `https://replit.com/@AkirahX/json-server`
 
-`node . --db 'https://json-server.nurutomo.repl.co/'`
+`node . --db 'https://json-server.akirahx.repl.co'`
 
-The server should have like this specification
+O servidor deve ter como esta especificação
 
 #### GET
 
