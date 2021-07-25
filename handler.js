@@ -221,14 +221,14 @@ module.exports = {
 
           m.isCommand = true
           let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17 // XP Earning per command
-          if (xp > 200) m.reply('Ngecit -_-') // Hehehe
+          if (xp > 200) m.reply('Puts -_-') // Hehehe
           else m.exp += xp
           if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-            this.reply(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, m)
-            continue // Limit habis
+            this.reply(m.chat, `Seus coins acabaram, compre com *${usedPrefix}buy*`, m)
+            continue // 
           }
           if (plugin.level > _user.level) {
-            this.reply(m.chat, `diperlukan level ${plugin.level} untuk menggunakan perintah ini. Level kamu ${_user.level}`, m)
+            this.reply(m.chat, `Você necessita de pelo menos nível ${plugin.level} para utilizar este comando.\n\nSeu nível ${_user.level}`, m)
             continue // If the level has not been reached
           }
           let extra = {
@@ -273,7 +273,7 @@ module.exports = {
                 console.error(e)
               }
             }
-            if (m.limit) m.reply(+ m.limit + ' Limit terpakai')
+            if (m.limit) m.reply(+ m.limit + ' coin utilizado')
           }
           break
         }
@@ -345,9 +345,9 @@ module.exports = {
         }
         break
       case 'promote':
-        text = (chat.sPromote || this.spromote || conn.spromote || '@user ```is now Admin```')
+        text = (chat.sPromote || this.spromote || conn.spromote || '@user ```agora é um administrador```')
       case 'demote':
-        if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
+        if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```não é mais um administrador```')
         text = text.replace('@user', '@' + participants[0].split('@')[0])
         if (chat.detect) this.sendMessage(jid, text, MessageType.extendedText, {
           contextInfo: {
@@ -362,10 +362,10 @@ module.exports = {
     let chat = global.db.data.chats[m.key.remoteJid]
     if (chat.delete) return
     await this.reply(m.key.remoteJid, `
-Terdeteksi @${m.participant.split`@`[0]} telah menghapus pesan
+Foi detectado @${m.participant.split`@`[0]} apagando uma mensagem
 
-Untuk mematikan fitur ini, ketik
-*.enable delete*
+Para desligar este recurso, use
+*.disable delete*
 `.trim(), m.message, {
       contextInfo: {
         mentionedJid: [m.participant]
@@ -384,22 +384,22 @@ Untuk mematikan fitur ini, ketik
           return
         break
     }
-    await this.sendMessage(from, 'Maaf, karena anda menelfon bot. anda diblokir otomatis', MessageType.extendedText)
+    await this.sendMessage(from, 'Desculpe, porque você ligou para o bot está automaticamente bloqueado', MessageType.extendedText)
     await this.blockUser(from, 'add')
   }
 }
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
-    owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
-    mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
-    premium: 'Perintah ini hanya untuk member _*Premium*_ !',
-    group: 'Perintah ini hanya dapat digunakan di grup!',
-    private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
-    admin: 'Perintah ini hanya untuk *Admin* grup!',
-    botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
-    unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*'
+    rowner: '_Este comando pode ser utilizado somente pelo dono global_',
+    owner: '_Este comando pode ser utilizado somente pelo dono._',
+    mods: '_Este comando pode ser utilizado somente pelos moderadores_',
+    premium: '_Este comando está disponível apenas para membros premium_',
+    group: '_Este comando está disponível somente a grupos._\n\nhttps://bit.ly/sapp-wabot',
+    private: 'Este comando pode ser utilizado somente em privado.',
+    admin: '_Este comando pode ser utilizado somente pelos administradores do grupo._',
+    botAdmin: '_Este comando requer que o bot seja administrador._',
+    unreg: '_Para utilizar este recurso deve se registrar._\n\n*!registrar nome.idade*\n\nExemplo: *!registrar Gabriel.24*'
   }[type]
   if (msg) return m.reply(msg)
 }
