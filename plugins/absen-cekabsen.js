@@ -22,8 +22,7 @@ ${conn.absen[id][2]}
 ${list}
 │ 
 └────
-
-_by Ariffb_`, m, { contextInfo: { mentionedJid: absen } })
+`, m, { contextInfo: { mentionedJid: absen } })
 }
 handler.help = ['cekabsen']
 handler.tags = ['absen']

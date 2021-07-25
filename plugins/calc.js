@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
   if (id in conn.math) {
     clearTimeout(conn.math[id][3])
     delete conn.math[id]
-    m.reply('Hmmm...ngecheat?')
+    m.reply('Hmmm... está correto?')
   }
   let val = text
     .replace(/[^0-9\-\/+*×÷πEe()piPI/]/g, '')
@@ -26,13 +26,13 @@ let handler = async (m, { conn, text }) => {
     if (!result) throw result
     m.reply(`*${format}* = _${result}_`)
   } catch (e) {
-    if (e == undefined) throw 'Isinya?'
-    throw 'Format salah, hanya 0-9 dan Simbol -, +, *, /, ×, ÷, π, e, (, ) yang disupport'
+    if (e == undefined) throw 'Conta?'
+    throw 'Formato incorreto, apenas 0-9 e os símbolos -, +, *, /, ×, ÷, π, e, (, ) são suportados'
   }
 }
-handler.help = ['calc <expression>']
+handler.help = ['calc (expressão)']
 handler.tags = ['tools']
-handler.command = /^(calc(ulat(e|or))?|kalk(ulator)?)$/i
+handler.command = /^(calc(ular(e|or))?|kalk(ulator)?)$/i
 handler.exp = 5
 
 module.exports = handler

@@ -2,17 +2,17 @@ let handler = async (m, { usedPrefix, text }) => {
     conn.absen = conn.absen ? conn.absen : {}
     let id = m.chat
     if (id in conn.absen) {
-        throw `_*Masih ada absen di chat ini!*_\n\n*${usedPrefix}hapusabsen* - untuk menghapus absen`
+        throw `_*Já existe uma sala de ausência neste grupo!*_\n\n*${usedPrefix}delasentes* - para excluir a sala`
     }
     conn.absen[id] = [
-        m.reply(`Berhasil memulai absen!\n\n*${usedPrefix}absen* - untuk absen\n*${usedPrefix}cekabsen* - untuk mengecek absen\n*${usedPrefix}hapusabsen* - untuk menghapus data absen`),
+        m.reply(`Sala de ausência criada com sucesso!\n\n*${usedPrefix}ausente* - ficar ausênte\n*${usedPrefix}verausentes* - para verificar\n*${usedPrefix}delausente* - para fechar a sala`),
         [],
         text
     ]
 }
-handler.help = ['mulaiabsen [teks]']
+handler.help = ['causencia (motivo)']
 handler.tags = ['absen']
-handler.command = /^(start|mulai)absen$/i
+handler.command = /^(c|mulai)ausencia$/i
 handler.group = true
 handler.admin = true
 module.exports = handler

@@ -1,9 +1,9 @@
 let handler = async (m, { usedPrefix, command, text, args }) => {
     if (!args || !['add', 'remove'].includes(args[0].toLowerCase())) throw `
-*Usage:* ${usedPrefix + command} <add|remove> number,number,...,number
-*Example:*
-${usedPrefix + command} add 6281111111111,12345678901,0
-${usedPrefix + command} remove 6281111111111,12345678901,0
+*Modo de uso:* ${usedPrefix + command} <add|remove> número,número,...,número
+*Exemplo:*
+${usedPrefix + command} add 55119000000, 5521900000000
+${usedPrefix + command} remove 55119000000, 5521900000000
 `.trim()
     let type = args[0].toLowerCase() === 'add' ? true : false
     let teks = text.replace(args[0], '').trim()
@@ -13,9 +13,9 @@ ${usedPrefix + command} remove 6281111111111,12345678901,0
         if (!user) user = global.db.data.users[who] = {}
         user.whitelist = type
     }
-    m.reply(`Done ${type ? 'add' : 'remove'} whitelist ${users.length} user(s)`)
+    m.reply(`Pronto ${type ? 'add' : 'remove'} whitelist ${users.length} usuário(s)`)
 }
-handler.help = ['whitelist'].map(v => v + ' nomor,nomor')
+handler.help = ['whitelist'].map(v => v + ' número, número')
 handler.tags = ['owner']
 handler.command = ['whitelist']
 handler.owner = true

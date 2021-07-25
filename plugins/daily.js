@@ -2,14 +2,14 @@ const free = 500
 const prem = 5000
 let handler = async (m, { isPrems }) => {
   let time = global.db.data.users[m.sender].lastclaim + 86400000
-  if (new Date - global.db.data.users[m.sender].lastclaim < 86400000) throw `Anda sudah mengklaim klaim harian hari ini\ntunggu selama ${msToTime(time - new Date())} lagi`
+  if (new Date - global.db.data.users[m.sender].lastclaim < 86400000) throw `Você já recebeu seu pagamento diário hoje\nEspere por mais ${msToTime(time - new Date())}`
   global.db.data.users[m.sender].exp += isPrems ? prem : free
   m.reply(`+${isPrems ? prem : free} XP`)
   global.db.data.users[m.sender].lastclaim = new Date * 1
 }
-handler.help = ['daily', 'claim']
+handler.help = ['pd', 'payday']
 handler.tags = ['xp']
-handler.command = /^(daily|claim)$/i
+handler.command = /^(pd|payday)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
@@ -34,5 +34,5 @@ function msToTime(duration) {
   minutes = (minutes < 10) ? "0" + minutes : minutes
   seconds = (seconds < 10) ? "0" + seconds : seconds
 
-  return hours + " jam " + minutes + " menit"
+  return hours + " horas " + minutes + " minutos"
 }

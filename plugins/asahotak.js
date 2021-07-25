@@ -29,8 +29,7 @@ Bonus: ${poin} XP
         }, timeout)
     ]
 }
-handler.help = ['asahotak']
-handler.tags = ['game']
+
 handler.command = /^asahotak/i
 
 module.exports = handler

@@ -14,7 +14,5 @@ ${json.result.data.translation.id}
     conn.sendFile(m.chat, json.result.data.audio.primary, 'all.mp3', '', m, false, { mimetype: 'audio/mp4' })
 }
 
-handler.help = ['alquran *114 1*']
-handler.tags = ['quran']
 handler.command = /^(al)?quran$/i
 module.exports = handler

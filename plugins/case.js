@@ -14,6 +14,8 @@ function handler(m, { text }) {
         }
     }))
 }
-handler.command = ['alay', 'case']
+handler.help = ['leet (texto)']
+handler.tags = ['tools']
+handler.command = ['alay', 'leet']
 
 module.exports = handler

@@ -20,8 +20,6 @@ ${translation_en}
 Artinya: "Sesungguhnya Allah mempunyai sembilan puluh sembilan nama, alias seratus kurang satu. Barang siapa yang menghitung-hitungnya, niscaya masuk surga; Dia Witir dan menyukai yang witir".`
     m.reply(contoh + data + anjuran)
 }
-handler.help = ['asmaulhusna [nomor]']
-handler.tags = ['quran']
 handler.command = /^(asmaulhusna)$/i
 module.exports = handler
 
