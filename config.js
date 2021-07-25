@@ -1,15 +1,15 @@
-global.owner = ['6281515860089', '6281334177340'] // Put your number here
-global.mods = [] // Want some help?
-global.prems = [] // Premium user has unlimited limit
+global.owner = ['5511973584242', '11950250596'] // Seu número aqui
+global.mods = [] // Precisa de ajuda?
+global.prems = [] // Usuários premium tem coins ilimitados
 global.APIs = { // API Prefix
-  // name: 'https://website'
+  // web: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com',
   xteam: 'https://api.xteam.xyz',
   zahir: 'https://zahirr-web.herokuapp.com',
   zeks: 'https://api.zeks.xyz',
   pencarikode: 'https://pencarikode.xyz'
 }
-global.APIKeys = { // APIKey Here
+global.APIKeys = { // APIKey aqui
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'd90a9e986e18778b',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
@@ -18,10 +18,10 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'I hope you\'re fine'
-global.author = 'Nurutomo'
+global.packname = 'Sapphire Wabot'
+global.author = 'bit.ly/sapp-wabot'
 
-global.multiplier = 69 // The higher, The harder levelup
+global.multiplier = 30 // Levelup
 
 let fs = require('fs')
 let chalk = require('chalk')
