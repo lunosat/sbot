@@ -16,46 +16,46 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
         let { isBanned, welcome, detect, sWelcome, sBye, sPromote, sDemote, antiLink } = global.db.data.chats[m.chat]
         const groupAdmins = getGroupAdmins(participants)
         let listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.split('@')[0]}`).join('\n')
-        let text = `*「 Group Information 」*\n
+        let text = `*「 Informações do grupo 」*\n
 *ID:* 
 ${groupMetadata.id}
 
-*Name:* 
+*Nome:* 
 ${groupMetadata.subject}
 
-*Description:* 
+*Descrição:* 
 ${groupMetadata.desc}
 
-*Total Members:*
-${participants.length} Members
+*Número de membros:*
+${participants.length} Membros
 
-*Group Owner:* 
+*Dono do grupo:* 
 @${m.chat.split`-`[0]}
 
-*Group Admins:*
+*Administradores:*
 ${listAdmin}
 
-*Group Settings:*
-${isBanned ? '✅' : '❌'} Banned
-${welcome ? '✅' : '❌'} Welcome
+*Configurações:*
+${isBanned ? '✅' : '❌'} banido
+${welcome ? '✅' : '❌'} Boas vindas
 ${detect ? '✅' : '❌'} Detect
 ${global.db.data.chats[m.chat].delete ? '❌' : '✅'} Anti Delete
 ${antiLink ? '✅' : '❌'} Anti Link
 
-*Message Settings:*
-Welcome: ${sWelcome}
-Bye: ${sBye}
-Promote: ${sPromote}
-Demote: ${sDemote}
+*Config. de mensagens:*
+Boas vindas: ${sWelcome}
+Despedidas: ${sBye}
+Promoção: ${sPromote}
+Despromoção: ${sDemote}
 `.trim()
         ownernya = [`${m.chat.split`-`[0]}@s.whatsapp.net`]
         let mentionedJid = groupAdmins.concat(ownernya)
         conn.sendFile(m.key.remoteJid, pp, 'pp.jpg', text, m, false, { contextInfo: { mentionedJid } })
     }
 }
-handler.help = ['infogrup']
+handler.help = ['infogrupo']
 handler.tags = ['group']
-handler.command = /^(gro?upinfo|info(gro?up|gc))$/i
+handler.command = /^(gro?upinfo|info(gru?po|gc))$/i
 
 handler.group = true
 

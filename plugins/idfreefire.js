@@ -5,8 +5,8 @@ let handler = async (m, { args }) => {
   if (json.result.name) m.reply(`\nNama : ${json.result.name}\nID : ${args[0]}\n`)
     else throw `Error!\n\n${json}`
 }
-handler.help = ['epep'].map(v => v + ' <id>')
-handler.tags = ['internet']
+//handler.help = ['epep'].map(v => v + ' <id>')
+//handler.tags = ['internet']
 handler.command = /^(freefire|epep)$/i
 
 module.exports = handler

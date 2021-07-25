@@ -101,7 +101,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       global.opts['restrict'] = isEnable
       break
-    case 'nyimak':
+    case 'esc':
       isAll = true
       if (!isROwner) {
         global.dfail('rowner', m, conn)
@@ -146,7 +146,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break
     default:
       if (!/[01]/.test(command)) throw `
-List option: welcome | delete | public | antilink | autolevelup | detect | document | whitelistmycontacts | restrict | nyimak | autoread | pconly | gconly | swonly
+List option: welcome | delete | public | antilink | autolevelup | detect | document | whitelistmycontacts | restrict | esc | autoread | pconly | gconly | swonly
 
 Contoh:
 ${usedPrefix}enable welcome
@@ -155,11 +155,11 @@ ${usedPrefix}disable welcome
       throw false
   }
   m.reply(`
-*${type}* berhasil di *${isEnable ? 'nyala' : 'mati'}kan* ${isAll ? 'untuk bot ini' : isUser ? '' : 'untuk chat ini'}
+*${type}* foi *${isEnable ? 'ativ' : 'desativ'}ado* ${isAll ? 'para este chat' : isUser ? '' : 'para este chat'}
 `.trim())
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
 handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
-
+handler.admin = true
 module.exports = handler

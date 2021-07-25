@@ -2,7 +2,7 @@ let webp = require('node-webpmux')
 let util = require('util')
 
 let handler = async (m) => {
-    if (!m.quoted) return conn.reply(m.chat, 'Tag stikernya!', m)
+    if (!m.quoted) return conn.reply(m.chat, 'Marque o sticker!', m)
     let q = { message: { [m.quoted.mtype]: m.quoted } }
     if (/sticker/.test(m.quoted.mtype)) {
         let img = new webp.Image()

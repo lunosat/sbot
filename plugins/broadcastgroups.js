@@ -3,10 +3,10 @@ let handler  = async (m, { conn, text }) => {
   let cc = text ? m : m.quoted ? await m.getQuotedObj() : false || m
   let teks = text ? text : cc.text
   conn.reply(m.chat, `_Transmissão enviada para ${groups.length} grupo(s)_`, m)
-  for (let id of groups) await conn.copyNForward(id, conn.cMod(m.chat, cc, /bc|broadcast/i.test(teks) ? teks : teks + '\n' + readMore + '「 All Group Broadcast 」\n' + randomID(32)), true).catch(_=>_)
+  for (let id of groups) await conn.copyNForward(id, conn.cMod(m.chat, cc, /bc|broadcast/i.test(teks) ? teks : teks + '\n' + readMore + '「 Transmissão para grupos 」\n' + randomID(32)), true).catch(_=>_)
   m.reply('Transmissão enviada para todos os grupos :)')
 }
-handler.help = ['broadcastgroup','bcgc'].map(v => v + ' (texto))')
+handler.help = ['broadcastgroup','bcgc'].map(v => v + ' (texto)')
 handler.tags = ['owner']
 handler.command = /^(broadcast|bc)(group|grup|gc)$/i
 handler.owner = true

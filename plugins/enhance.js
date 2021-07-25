@@ -5,7 +5,7 @@ let handler = async (m) => {
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
   if (!mime) throw 'Tidak ada foto'
-  if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`
+  if (!/image\/(jpe?g|png)/.test(mime)) throw `Formato ${mime} não suportado`
   let img = await q.download()
   let body = new FormData
   body.append('image', img, 'image')
@@ -16,7 +16,7 @@ let handler = async (m) => {
   if (res.status !== 200) throw await res.json()
   await conn.sendFile(m.chat, await res.buffer(), 'hd.jpg', 'Nih, hd kan?', m)
 }
-handler.help = ['hd (caption|reply media)', 'enhance (caption|reply media)']
+handler.help = ['hd (mencione|legenda)']
 handler.tags = ['tools']
 handler.command = /^(hd|enhance)$/i
 

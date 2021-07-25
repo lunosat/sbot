@@ -1,6 +1,6 @@
 let fetch = require('node-fetch')
 let handler = async (m, { text }) => {
-    if (!text) throw 'Cari apa?'
+    if (!text) throw 'O que deseja?'
     let res = await fetch(global.API('https://api.github.com', '/search/repositories', {
         q: text
     }))
@@ -10,17 +10,17 @@ let handler = async (m, { text }) => {
         return `
 ${1 + index}. *${repo.full_name}*${repo.fork ? ' (fork)' : ''}
 _${repo.html_url}_
-_Dibuat pada *${formatDate(repo.created_at)}*_
-_Terakhir update pada *${formatDate(repo.updated_at)}*_
+_Criado em *${formatDate(repo.created_at)}*_
+_Última atualização em *${formatDate(repo.updated_at)}*_
 👁  ${repo.watchers}   🍴  ${repo.forks}   ⭐  ${repo.stargazers_count}
 ${repo.open_issues} Issue${repo.description ? `
-*Deskripsi:*\n${repo.description}` : ''}
+*Descrição:*\n${repo.description}` : ''}
 *Clone:* \`\`\`$ git clone ${repo.clone_url}\`\`\`
 `.trim()
     }).join('\n\n')
     m.reply(str)
 }
-handler.help = ['githubsearch'].map(v => v + ' <pencarian>')
+handler.help = ['githubsearch'].map(v => v + ' (pesquisa)')
 handler.tags = ['tools']
 
 handler.command = /^g(ithub|h)search$/i

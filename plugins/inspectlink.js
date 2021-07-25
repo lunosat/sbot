@@ -2,25 +2,25 @@ let linkRegex = /chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i
 
 let handler = async (m, { conn, text }) => {
   let [, code] = text.match(linkRegex) || []
-  if (!code) throw 'Link invalid'
+  if (!code) throw 'Link inválido'
   let res = await conn.query({
     json: ["query", "invite", code],
     expect200: true
   })
   if (!res) throw res
   let caption = `
--- [Group Link Inspector] --
+-- [Inspetor de link] --
 ${res.id}
-*Judul:* ${res.subject}
-*Dibuat* oleh @${res.id.split('-')[0]} pada *${formatDate(res.creation * 1000)}*${res.subjectOwner ? `
-*Judul diubah* oleh @${res.subjectOwner.split`@`[0]} pada *${formatDate(res.subjectTime * 1000)}*`: ''}${res.descOwner ? `
-*Deskripsi diubah* oleh @${res.descOwner.split`@`[0]} pada *${formatDate(res.descTime * 1000)}*` : ''}
-*Jumlah Member:* ${res.size}
-*Member yang diketahui join*: ${res.participants ? '\n' + res.participants.map((user, i) => ++i + '. @' + user.id.split`@`[0]).join('\n').trim() : 'Tidak ada'}
-${res.desc ? `*Deskripsi:*
-${res.desc}` : '*Tidak ada Deskripsi*'}
+*Nome:* ${res.subject}
+*Criado* por @${res.id.split('-')[0]} em *${formatDate(res.creation * 1000)}*${res.subjectOwner ? `
+*Nome alterado* por @${res.subjectOwner.split`@`[0]} em *${formatDate(res.subjectTime * 1000)}*`: ''}${res.descOwner ? `
+*Descrição alterada* por @${res.descOwner.split`@`[0]} em *${formatDate(res.descTime * 1000)}*` : ''}
+*Membros:* ${res.size}
+*Membros conhecidos*: ${res.participants ? '\n' + res.participants.map((user, i) => ++i + '. @' + user.id.split`@`[0]).join('\n').trim() : 'Nenhum'}
+${res.desc ? `*Descrição:*
+${res.desc}` : '*Sem descrição*'}
 
-*JSON Version*
+*Versão JSON*
 \`\`\`${JSON.stringify(res, null, 1)}\`\`\`
 `.trim()
   let pp = await conn.getProfilePicture(res.id).catch(console.error)
@@ -31,10 +31,10 @@ ${res.desc}` : '*Tidak ada Deskripsi*'}
     }
   })
 }
-handler.help = ['inspect <chat.whatsapp.com>']
+handler.help = ['inspecionar (chat.whatsapp.com)']
 handler.tags = ['tools']
 
-handler.command = /^inspect$/i
+handler.command = /^inspecionar$/i
 
 module.exports = handler
 

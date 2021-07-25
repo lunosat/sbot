@@ -35,7 +35,5 @@ ${id}`)
         throw `_*Error!*_`
     }
 }
-handler.help = ['hadis']
-handler.tags = ['quran', 'tools']
 handler.command = /^(hadist?)$/i
 module.exports = handler
