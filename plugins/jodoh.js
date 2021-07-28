@@ -22,15 +22,13 @@ ${positif}
 
 *Negatif:*
 ${negatif}
-
-*© stikerin*
 `.trim())
     }
     else throw json
 
 }
-handler.help = ['jodoh'].map(v => v + ' <nama>|<nama doi>')
-handler.tags = ['fun']
+//handler.help = ['jodoh'].map(v => v + ' <nama>|<nama doi>')
+//handler.tags = ['fun']
 handler.command = /^(jodoh)$/i
 
 handler.limit = true

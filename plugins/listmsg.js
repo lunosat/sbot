@@ -1,7 +1,7 @@
 let handler = m => {
     let msgs = global.db.data.msgs
     m.reply(`
-*LIST PESAN*
+*Lista de mensagens*
 
 ${Object.keys(msgs).map(v => '- ' + v).join('\n')}
 `.trim())

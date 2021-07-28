@@ -8,8 +8,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let mes = json.result.map((v, i) => `${i + 1}. Provinsi: ${v.province}\nKota: ${v.city}\nKecamatan: ${v.subdistrict}\nPerkotaan: ${v.urban}\nKode Pos: ${v.postalcode}`).join('\n\n')
     m.reply(mes)
 }
-handler.help = ['kodepos <kota>']
-handler.tags = ['tools']
+//handler.help = ['kodepos <kota>']
+//handler.tags = ['tools']
 handler.command = /^kodepos$/i
 
 handler.limit = true

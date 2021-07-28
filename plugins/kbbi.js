@@ -11,7 +11,7 @@ let handler = async (m, { text }) => {
 ${list}
 `.trim())
 }
-handler.help = ['kbbi <teks>']
-handler.tags = ['internet']
+//handler.help = ['kbbi <teks>']
+//handler.tags = ['internet']
 handler.command = /^kbbi$/i
 module.exports = handler

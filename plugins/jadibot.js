@@ -37,9 +37,9 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     conn.on('CB:action,,call', conn.onCall)
     conn.regenerateQRIntervalMs = null
     conn.connect().then(async ({ user }) => {
-      parent.reply(m.chat, 'Berhasil tersambung dengan WhatsApp - mu.\n*NOTE: Ini cuma numpang*\n' + JSON.stringify(user, null, 2), m)
+      parent.reply(m.chat, 'Conectado com sucesso ao WhatsApp - mu.\n\n*Nota: isto é apenas um teste*\n' + JSON.stringify(user, null, 2), m)
       if (auth) return
-      await parent.sendMessage(user.jid, `Kamu bisa login tanpa qr dengan pesan dibawah ini. untuk mendapatkan kode lengkapnya, silahkan kirim *${usedPrefix}getcode* untuk mendapatkan kode yang akurat`, MessageType.extendedText)
+      await parent.sendMessage(user.jid, `Você pode fazer o login sem qr com a mensagem abaixo. Para obter o código completo, por favor envie *${usedPrefix}getcode* para obter o código preciso`, MessageType.extendedText)
       parent.sendMessage(user.jid, `${usedPrefix + command} ${Buffer.from(JSON.stringify(conn.base64EncodedAuthInfo())).toString('base64')}`, MessageType.extendedText)
     })
     setTimeout(() => {
@@ -55,7 +55,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         try {
           if (conn.state != 'close') return
           if (conn.user && conn.user.jid)
-            parent.sendMessage(conn.user.jid, `Koneksi terputus...`, MessageType.extendedText)
+            parent.sendMessage(conn.user.jid, `Conexão perdida...`, MessageType.extendedText)
           let i = global.conns.indexOf(conn)
           if (i < 0) return
           delete global.conns[i]
@@ -64,12 +64,12 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       }, 30000)
     })
     global.conns.push(conn)
-  } else throw 'Tidak bisa membuat bot didalam bot!\n\nhttps://wa.me/' + global.conn.user.jid.split`@`[0] + '?text=.jadibot'
+  } else throw 'Não posso fazer um bot dentro de um bot!\n\nhttps://wa.me/' + global.conn.user.jid.split`@`[0] + '?text=.testbot'
 }
-handler.help = ['jadibot']
+handler.help = ['testbot']
 handler.tags = ['jadibot']
 
-handler.command = /^jadibot$/i
+handler.command = /^testbot$/i
 
 handler.limit = true
 

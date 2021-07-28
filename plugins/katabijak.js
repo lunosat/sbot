@@ -37,8 +37,8 @@ https://neoxr-api.herokuapp.com/docs`
             throw er
     }
 }
-handler.help = ['katabijak'].map(v => v + ' <opsi>')
-handler.tags = ['internet']
+//handler.help = ['katabijak'].map(v => v + ' <opsi>')
+//handler.tags = ['internet']
 handler.command = /^(katabijak|jagokata)$/i
 
 module.exports = handler

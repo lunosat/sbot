@@ -2,14 +2,14 @@ const uploadFile = require('../lib/uploadFile')
 const uploadImage = require('../lib/uploadImage')
 let handler = async (m, { conn, text }) => {
   let [t1, t2] = text.split`|`
-  if (!t1) throw 'No Text'
+  if (!t1) throw 'Faltou o texto'
   if (!t2) {
     t2 = t1
     t1 = ''
   }
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw `Unknown Mimetype`
+  if (!mime) throw `Formato desconhecido`
   if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`
   let img = await q.download()
   let link = await uploadImage(img).catch(e => uploadFile(img))
@@ -17,7 +17,7 @@ let handler = async (m, { conn, text }) => {
     background: link
   }), 'meme.png', `Nih :|`, m)
 }
-handler.help = ['memeg'].map(v => v + '<apa|apa>')
+handler.help = ['memeg'].map(v => v + '(texto|texto)')
 handler.tags = ['tools']
 handler.command = /^(memeg)$/i
 

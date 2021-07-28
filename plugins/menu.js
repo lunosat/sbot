@@ -2,50 +2,46 @@ let fs = require('fs')
 let path = require('path')
 let levelling = require('../lib/levelling')
 let tags = {
-  'main': 'Main',
-  'game': 'Game',
-  'xp': 'Exp & Limit',
-  'sticker': 'Sticker',
-  'kerang': 'Kerang Ajaib',
-  'quotes': 'Quotes',
-  'admin': 'Admin',
-  'group': 'Group',
+  'main': 'Principal',
+  'game': 'Jogos',
+  'xp': 'Exp & Coins',
+  'sticker': 'Stickers',
+  'quotes': 'Citações',
+  'admin': 'Administrador',
+  'group': 'Grupos',
   'premium': 'Premium',
   'internet': 'Internet',
-  'anonymous': 'Anonymous Chat',
-  'nulis': 'MagerNulis & Logo',
-  'downloader': 'Downloader',
-  'tools': 'Tools',
-  'fun': 'Fun',
+  'anonymous': 'Chat anônimo',
+  'nulis': 'Imagens',
+  'downloader': 'Downloads',
+  'tools': 'Ferramentas',
+  'fun': 'Diversão',
   'database': 'Database',
-  'vote': 'Voting',
-  'absen': 'Absen',
-  'quran': 'Al Qur\'an',
-  'jadibot': 'Jadi Bot',
-  'owner': 'Owner',
+  'vote': 'Votação',
+  'jadibot': 'Bot de teste',
+  'owner': 'Dono',
   'host': 'Host',
-  'advanced': 'Advanced',
-  'info': 'Info',
-  '': 'No Category',
+  'advanced': 'Avançado',
+  'info': 'Informações',
+  '': 'Sem categoria',
 }
 const defaultMenu = {
   before: `
 ╭─「 %me 」
-│ Hai, %name!
+│ Olá, %name!
 │
-│ Tersisa *%limit Limit*
-│ Role *%role*
-│ Level *%level (%exp / %maxexp)* [%xp4levelup lagi untuk levelup]
-│ %totalexp XP in Total
+│ *%limit Coins*
+│ Patente: *%role*
+│ Nível *%level (%exp / %maxexp)* (%xp4levelup para o próximo nível)
+│ %totalexp XP total
 │ 
-│ Tanggal: *%week %weton, %date*
-│ Tanggal Islam: *%dateIslamic*
-│ Waktu: *%time*
+│ Data: *%date*
+│ Hora: *%time*
 │
-│ Uptime: *%uptime (%muptime)*
-│ Database: %rtotalreg of %totalreg
-│ Github:
-│ %github
+│ Atividade: *%uptime (%muptime)*
+│ Usuário: %rtotalreg de %totalreg registrados
+│ Web:
+│ https://bot.sapphirenetwork.org
 ╰────
 %readmore`.trimStart(),
   header: '╭─「 %category 」',
@@ -72,7 +68,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let week = d.toLocaleDateString(locale, { weekday: 'long' })
     let date = d.toLocaleDateString(locale, {
       day: 'numeric',
-      month: 'long',
+      month: 'numeric',
       year: 'numeric'
     })
     let dateIslamic = Intl.DateTimeFormat(locale + '-TN-u-ca-islamic', {
@@ -125,7 +121,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '(Limit)' : '')
+                .replace(/%islimit/g, menu.limit ? '(1 Coin)' : '')
                 .replace(/%isPremium/g, menu.premium ? '(Premium)' : '')
                 .trim()
             }).join('\n')
@@ -154,13 +150,13 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     conn.reply(m.chat, text.trim(), m)
   } catch (e) {
-    conn.reply(m.chat, 'Maaf, menu sedang error', m)
+    conn.reply(m.chat, 'Ops, há algo de errado com o menu', m)
     throw e
   }
 }
-handler.help = ['menu', 'help', '?']
+handler.help = ['menu', 'help', 'comandos']
 handler.tags = ['main']
-handler.command = /^(menu|help|\?)$/i
+handler.command = /^(menu|help|comandos)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false

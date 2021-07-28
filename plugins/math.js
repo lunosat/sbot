@@ -1,31 +1,31 @@
 let handler = async (m, { conn, args, usedPrefix }) => {
   conn.math = conn.math ? conn.math : {}
   if (args.length < 1) throw `
-Mode: ${Object.keys(modes).join(' | ')}
+Modos: ${Object.keys(modes).join(' | ')}
 
-Contoh penggunaan: ${usedPrefix}math medium
+Exemplo: ${usedPrefix}mat facil
 `.trim()
   let mode = args[0].toLowerCase()
   if (!(mode in modes)) throw `
-Mode: ${Object.keys(modes).join(' | ')}
+Modos: ${Object.keys(modes).join(' | ')}
 
-Contoh penggunaan: ${usedPrefix}math medium
+Exemplo: ${usedPrefix}mat facil
 `.trim()
   let id = m.chat
-  if (id in conn.math) return conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.math[id][0])
+  if (id in conn.math) return conn.reply(m.chat, 'Responda a questão anterior para prosseguir', conn.math[id][0])
   let math = genMath(mode)
   conn.math[id] = [
-    await conn.reply(m.chat, `Berapa hasil dari *${math.str}*?\n\nTimeout: ${(math.time / 1000).toFixed(2)} detik\nBonus Jawaban Benar: ${math.bonus} XP`, m),
+    await conn.reply(m.chat, `Qual é o resultado de:\n\n *${math.str}*?\n\nTempo: ${(math.time / 1000).toFixed(2)} segundos\n\nBônus de acerto: ${math.bonus} XP`, m),
     math, 4,
     setTimeout(() => {
-      if (conn.math[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah ${math.result}`, conn.math[id][0])
+      if (conn.math[id]) conn.reply(m.chat, `O tempo acabou!\n\nResposta correta ${math.result}`, conn.math[id][0])
       delete conn.math[id]
     }, math.time)
   ]
 }
-handler.help = ['math <mode>']
+handler.help = ['mat (dificuldade)']
 handler.tags = ['game']
-handler.command = /^math/i
+handler.command = /^mat/i
 
 module.exports = handler
 
@@ -34,9 +34,9 @@ let modes = {
   easy: [-10, 10, -10, 10, '*/+-', 20000, 40],
   medium: [-40, 40, -20, 20, '*/+-', 40000, 150],
   hard: [-100, 100, -70, 70, '*/+-', 60000, 350],
-  extreme: [-999999, 999999, -999999, 999999, '*/', 99999, 9999],
-  impossible: [-99999999999, 99999999999, -99999999999, 999999999999, '*/', 30000, 35000],
-  impossible2: [-999999999999999, 999999999999999, -999, 999, '/', 30000, 50000]
+  extreme: [-999999, 999999, -999999, 999999, '*/', 99999, 500],
+  impossible: [-99999999999, 99999999999, -99999999999, 999999999999, '*/', 30000, 600],
+  impossible2: [-999999999999999, 999999999999999, -999, 999, '/', 30000, 800]
 } 
 
 let operators = {

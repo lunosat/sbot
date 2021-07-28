@@ -5,16 +5,15 @@ let handler = async(m, { conn, text }) => {
   if (!res.ok) throw await res.text()
   let json = await res.json()
   let { title, synopsis, chapters, url, volumes, score, image_url } = json.results[0]
-let mangaingfo = `*Title:* ${title}
-*Chapters:* ${chapters}
+let mangaingfo = `*Título:* ${title}
+*Capítulos:* ${chapters}
 *Volumes:* ${volumes}
 *Score:* ${score}
-*Synopsis:* ${synopsis}
+*Sinopse:* ${synopsis}
 *Link*: ${url}`
   conn.sendFile(m.chat, image_url, '', mangaingfo, m)
 }
-handler.help = ['manga <judul>']
+handler.help = ['manga (título)']
 handler.tags = ['internet']
 handler.command = /^(manga)$/i
-//udah di maapin kan?
 module.exports = handler
