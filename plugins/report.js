@@ -1,16 +1,15 @@
-// By RC047 :V
 
 let handler = async(m, { conn, text }) => {
-    if (!text) throw 'Silahkan masukkan laporan'
-    if (text.length > 300) throw 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks!'
-    const laporan = `*「 REPORT 」*\nNomor : wa.me/${m.sender.split`@`[0]}\nPesan : ${text}`
+    if (!text) throw 'Descreva a denuncia ou bug.'
+    if (text.length > 300) throw 'Seja mais breve, utilize no máximo 300 caracteres.'
+    const laporan = `*「 REPORTE 」*\nNúmero : wa.me/${m.sender.split`@`[0]}\nDescrição: ${text}`
     for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid && v != '6281515860089@s.whatsapp.net'))
     m.reply(laporan, jid)
-    m.reply(laporan, m.sender) // Mwehehehehe
-    m.reply('✔️Masalah telah di laporkan ke Owner Bot, laporan palsu/main2 tidak akan ditanggapi!')
+    m.reply(laporan, m.sender) 
+    m.reply('O problema foi relatado ao proprietário do bot, relatórios falsos não serão respondidos.')
 }
-handler.help = ['bug', 'report'].map(v => v + ' <laporan>')
+handler.help = ['bug', 'report'].map(v => v + ' (descrição)')
 handler.tags = ['info']
-handler.command = /^(bug|report)$/i
+handler.command = /^(bug|reporte)$/i
 
 module.exports = handler

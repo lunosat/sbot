@@ -24,8 +24,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     }
 
 }
-handler.help = ['stikerline <url>']
-handler.tags = ['sticker']
+//handler.help = ['stikerline <url>']
+//handler.tags = ['sticker']
 handler.command = /^(stic?kerline)$/i
 
 handler.limit = true

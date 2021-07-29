@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     let room = Object.values(conn.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
     // m.reply('[WIP Feature]')
     if (room) {
-        m.reply('Partner ditemukan!')
+        m.reply('Parceiro encontrado!')
         room.o = m.chat
         room.game.playerO = m.sender
         room.state = 'PLAYING'
@@ -26,13 +26,13 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
             }[v]
         })
         let str = `
-Room ID: ${room.id}
+Sala ID: ${room.id}
 ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
 
-Menunggu @${room.game.currentTurn.split('@')[0]}
-Ketik *nyerah* untuk nyerah
+Espere por @${room.game.currentTurn.split('@')[0]}
+Envie *desistir* para cancelar a partida
 `.trim()
         if (room.x !== room.o) m.reply(str, room.x, {
             contextInfo: {
@@ -53,14 +53,14 @@ Ketik *nyerah* untuk nyerah
             state: 'WAITING'
         }
         if (text) room.name = text
-        m.reply('Menunggu partner' + (text ? `mengetik command dibawah ini
+        m.reply('Esperando oponente' + (text ? `digitar o comando abaixo
 ${usedPrefix}${command} ${text}` : ''))
         conn.game[room.id] = room
     }
 }
 
-handler.help = ['tictactoe', 'ttt'].map(v => v + ' [custom room name]')
+handler.help = ['jogodavelha'].map(v => v + ' (sala personalizada)')
 handler.tags = ['game']
-handler.command = /^(tictactoe|t{3})$/
+handler.command = /^(jogodavelha|t{3})$/
 
 module.exports = handler

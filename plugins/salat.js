@@ -24,8 +24,8 @@ ${hasil}
     m.reply(`Jadwal Sholat ${text}\n\n${json.data.string}`.trim())
 
 }
-handler.help = ['salat <daerah>']
-handler.tags = ['quran']
+//handler.help = ['salat <daerah>']
+//handler.tags = ['quran']
 handler.command = /^(jadwal)?s(a|o|ha|ho)lat$/i
 
 module.exports = handler

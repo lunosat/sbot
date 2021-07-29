@@ -1,17 +1,17 @@
 // NurNurz
 let handler = async (m, { conn, text }) => {
-   if (!text) throw `Masukan Nama Baru Untuk Bot`
+   if (!text) throw `Digite um novo nickname para o Bot`
      try {
         await conn.updateProfileName(text)
-        conn.reply(m.chat, 'Sukses Mengganti Nama Bot', m)
+        conn.reply(m.chat, 'Nickname atualizado com sucesso.', m)
      } catch (e) {
        console.log(e)
-       throw `Error`
+       throw `Erro`
      }
 }
-handler.help = ['setbotname']
+handler.help = ['setbotnick']
 handler.tags = ['owner']
-handler.command = /^(setbotname)$/i
+handler.command = /^(setbotnick)$/i
 handler.owner = true
 
 module.exports = handler

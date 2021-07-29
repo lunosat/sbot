@@ -2,8 +2,8 @@
 // https://github.com/TOXIC-DEVIL
 
 let handler = async (m, { conn, args }) => {
-    if (!args || !args[0] || args.length === 0) throw 'Masukkan nomor untuk dipindai!'
-    if (args[0].startsWith('0')) throw 'Gunakan code Negara!'
+    if (!args || !args[0] || args.length === 0) throw 'Digite o número que deseja analisar.'
+    if (args[0].startsWith('0')) throw 'Use o código do país.'
     let user = await conn.isOnWhatsApp(args[0])
     let exists = user && user.exists ? true : false
     if (exists) {
@@ -15,24 +15,24 @@ let handler = async (m, { conn, args }) => {
         }
         if (user.jid in global.db.data.users) isInDatabase = true
         let str = ` 
-*Nama:* ${conn.getName(user.jid)}
-*Nomor:* ${splitM(user.jid)}
-*Mention:* ${toM(user.jid)}
-*Api:* wa.me/${splitM(user.jid)}
-*Jid:* ${user.jid}
-*Whatsapp Bussines:* ${user.isBusiness ? 'Yes' : 'No'}
-*In Database:* ${isInDatabase ? 'Yes' : 'No'}
-*Group Yang Sama Dengan BOT:* ${sameGroup.length} *Group*
+*Nome:* ${conn.getName(user.jid)}
+*Número:* ${splitM(user.jid)}
+*Menção:* ${toM(user.jid)}
+*Url:* wa.me/${splitM(user.jid)}
+*ID:* ${user.jid}
+*Whatsapp Bussines:* ${user.isBusiness ? 'Sim' : 'Não'}
+*Database:* ${isInDatabase ? 'Sim' : 'Não'}
+*Grupos em comum com o bot:* ${sameGroup.length} *Grupos*
 `.trim()
         m.reply(str, m.chat, { 
             contextInfo: { 
                 mentionedJid: conn.parseMention(str)
             }
         })
-    } else throw 'User Tidak Ditemukan!!'
+    } else throw 'Usuário não encontrado.'
 }
     
-handler.help = ['scan'].map(v => v + ' [nomor]')
+handler.help = ['scan'].map(v => v + ' (número)')
 handler.tags = ['tools']
 handler.command = /^scan$/i
 

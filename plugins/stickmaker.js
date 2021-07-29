@@ -7,16 +7,16 @@ const effects = ['jail', 'gay', 'glass', 'wasted' ,'triggered']
 let handler = async (m, { conn, usedPrefix, text }) => {
     let effect = text.trim().toLowerCase()
   if (!effects.includes(effect)) throw `
-*Usage:* ${usedPrefix}stickmaker <effectname>
-*Example:* ${usedPrefix}stickmaker jail
+*Uso:* ${usedPrefix}sm (efeito)
+*Exemplo:* ${usedPrefix}sm jail
 
-*List Effect:*
+*Lista de efeitos:*
 ${effects.map(effect => `_> ${effect}_`).join('\n')}
 `.trim()
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'No Image Found'
-  if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} not support`
+  if (!mime) throw 'Imagem não encontrada'
+  if (!/image\/(jpe?g|png)/.test(mime)) throw `Formato ${mime} não suportado`
   let img = await q.download()
   let url = await uploadImage(img)
   let apiUrl = global.API('https://some-random-api.ml/canvas/', encodeURIComponent(effect), {
@@ -28,14 +28,14 @@ try {
       quoted: m
     })
   } catch (e) {
-    m.reply('Conversion to Sticker Failed, Sending as Image Instead')
+    m.reply('Conversão para sticker má sucedida, enviando como imagem.')
     await conn.sendFile(m.chat, apiUrl, 'image.png', null, m)
   }
 }
 
-handler.help = ['stickmaker (caption|reply media)']
+handler.help = ['sm (legenda|marque)']
 handler.tags = ['sticker']
-handler.command = /^(stickmaker)$/i
+handler.command = /^(sm)$/i
 handler.limit = true
 handler.group = false
 handler.register = true

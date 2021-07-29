@@ -3,30 +3,30 @@ const crypto = require('crypto')
 const xp_first_time = 2500
 const xp_link_creator = 15000
 const xp_bonus = {
-    5: 40000,
-   10: 100000,
-   20: 250000,
-   50: 1000000,
-  100: 10000000,
+    5: 30000,
+   10: 70000,
+   20: 100000,
+   50: 130000,
+  100: 500000,
 }
 
 let handler = async (m, { conn, usedPrefix, text }) => {
   let users = global.db.data.users
   if (text) {
-    if ('ref_count' in users[m.sender]) throw 'Tidak bisa menggunakan kode referal!'
+    if ('ref_count' in users[m.sender]) throw 'Não foi possível utilizar este código de referência!'
     let link_creator = (Object.entries(users).find(([, { ref_code }]) => ref_code === text.trim()) || [])[0]
-    if (!link_creator) throw 'Kode referal tidak valid'
+    if (!link_creator) throw 'Código de referência inválido'
     let count = users[link_creator].ref_count++
     let extra = xp_bonus[count] || 0
     users[link_creator].exp += xp_link_creator + extra
     users[m.sender].exp += xp_first_time
     users[m.sender].ref_count = 0
     m.reply(`
-Selamat!
+Parabéns!
 +${xp_first_time} XP
 `.trim())
     m.reply(`
-Seseorang telah menggunakan kode referal kamu
+Alguém utilizou seu código de referência
 +${xp_link_creator + extra} XP
 `.trim(), link_creator)
   } else {
@@ -35,28 +35,28 @@ Seseorang telah menggunakan kode referal kamu
     let command_text = `${usedPrefix}ref ${code}`
     let command_link = `wa.me/${conn.user.jid.split('@')[0]}?text=${encodeURIComponent(command_text)}`
     let share_text = `
-Dapatkan ${xp_first_time} XP untuk yang menggunakan link/kode referal dibawah ini
+Você receberá ${xp_first_time} XP para cada um que utilizar seu código de referência
 
-Referal Code: *${code}*
+Código de referência: *${code}*
 
 ${command_link}
 `.trim()
     m.reply(`
-Dapatkan ${xp_link_creator} XP untuk setiap pengguna baru yang menggunakan kode referal kamu
-${users[m.sender].ref_count} orang telah menggunakan kode referal kamu
+Você receberá ${xp_link_creator} para cada um que utilizar seu código de referência
+${users[m.sender].ref_count} pessoas usaram seu código de referência
 
-Kode referal kamu: ${code}
+Seu código de referência: ${code}
 
-Bagikan link kepada teman: ${command_link}
+Compartilhe o link com amigos: ${command_link}
 
-atau kirim pesan kepada teman wa.me/?text=${encodeURIComponent(share_text)}
+ou envie uma mensagem a um amigo wa.me/?text=${encodeURIComponent(share_text)}
 
-${Object.entries(xp_bonus).map(([count, xp]) => `${count} Orang = Bonus ${xp} XP`).join('\n')}
+${Object.entries(xp_bonus).map(([count, xp]) => `${count} Pessoa(s) = Bonus ${xp} XP`).join('\n')}
 `.trim())
   }
 }
 handler.help = ['ref']
-handler.tags = ['fun']
+handler.tags = ['main']
 
 handler.command = ['ref']
 

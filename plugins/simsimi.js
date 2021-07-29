@@ -5,8 +5,8 @@ let handler = async (m, { text }) => {
   if (json.status) m.reply(json.result)
   else throw json
 }
-handler.help = ['simi', 'simsimi', 'simih'].map(v => v + ' <teks>')
-handler.tags = ['fun']
+//handler.help = ['simi', 'simsimi', 'simih'].map(v => v + ' <teks>')
+//andler.tags = ['fun']
 handler.command = /^((sim)?simi|simih)$/i
 
 module.exports = handler

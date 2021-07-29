@@ -9,9 +9,9 @@ let handler = async (m, { conn, text }) => {
   })
   throw stiker.toString()
 }
-handler.help = ['ttp <teks>']
+handler.help = ['ts (texto)']
 handler.tags = ['sticker']
 
-handler.command = /^ttp$/i
+handler.command = /^ts$/i
 
 module.exports = handler

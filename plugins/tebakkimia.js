@@ -29,8 +29,8 @@ Bonus: ${poin} XP
         }, timeout)
     ]
 }
-handler.help = ['tebakkimia']
-handler.tags = ['game']
+//handler.help = ['tebakkimia']
+//handler.tags = ['game']
 handler.command = /^tebakkimia/i
 
 module.exports = handler

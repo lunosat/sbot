@@ -1,29 +1,29 @@
 let { MessageType } = require('@adiwajshing/baileys')
 let pajak = 0.02
 let handler = async (m, { conn, text }) => {
-    if (!text) throw 'Masukkan jumlah Limit yang akan diberi'
+    if (!text) throw 'Insira a quantia de Coins a ser transferida'
     let who
     if (m.isGroup) who = m.mentionedJid[0]
     else who = m.chat
-    if (!who) throw 'Tag salah satu lah'
+    if (!who) throw 'Marque o destinatário'
     let txt = text.replace('@' + who.split`@`[0], '').trim()
-    if (isNaN(txt)) throw 'Hanya angka'
+    if (isNaN(txt)) throw 'Apenas números'
     let poin = parseInt(txt)
     let limit = poin
     let pjk = Math.ceil(poin * pajak)
     limit += pjk
-    if (limit < 1) throw 'Minimal 1'
+    if (limit < 1) throw 'O valor mínimo é de 1'
     let users = global.db.data.users
-    if (limit > users[m.sender].limit) throw 'Limit tidak mencukupi untuk mentransfer'
+    if (limit > users[m.sender].limit) throw 'Você não possuí a quantia de coins que deseja transferir'
     users[m.sender].limit -= limit
     users[who].limit += poin
 
-    m.reply(`(${-poin} Limit) + (${-pjk} Limit (Pajak 2%)) = ( ${-limit} Limit)`)
+    m.reply(`(${-poin} Coins) + (${-pjk} Coins (Imposto 2%)) = ( ${-limit} Coins)`)
     conn.fakeReply(m.chat, `+${poin} Limit`, who, m.text)
 }
-handler.help = ['paylimit @user <amount>']
+handler.help = ['payc @user (quantia)']
 handler.tags = ['xp']
-handler.command = /^paylimit$/
+handler.command = /^payc$/
 handler.rowner = false
 
 module.exports = handler

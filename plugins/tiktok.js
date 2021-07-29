@@ -22,8 +22,8 @@ let handler = async (m, { conn, args }) => {
 ${txt}
   `.trim(), m)
 }
-handler.help = ['tiktok'].map(v => v + ' <url>')
-handler.tags = ['downloader']
+//handler.help = ['tiktok'].map(v => v + ' <url>')
+//handler.tags = ['downloader']
 
 handler.command = /^(tik(tok)?(dl)?)$/i
 

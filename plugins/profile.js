@@ -15,22 +15,22 @@ let handler = async (m, { conn, usedPrefix }) => {
     let math = max - xp
     let prem = global.prems.includes(who.split`@`[0])
     let str = `
-Name: ${username} ${registered ? '(' + name + ') ': ''}(@${who.replace(/@.+/, '')})${about ? '\nAbout: ' + about : ''}
-Number: ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
-Link: https://wa.me/${who.split`@`[0]}${registered ? '\nAge: ' + age : ''}
-XP: TOTAL ${exp} (${exp - min} / ${xp}) [${math <= 0 ? `Ready to *${usedPrefix}levelup*` : `${math} XP left to levelup`}]
-Level: ${level}
-Role: *${role}*
-Limit: ${limit}
-Registered: ${registered ? 'Yes (' + new Date(regTime) + ')': 'No'}
-Premium: ${prem ? 'Yes' : 'No'}${lastclaim > 0 ? '\nLast Claim: ' + new Date(lastclaim) : ''}
+*Nome:* ${username} ${registered ? '(' + name + ') ': ''}(@${who.replace(/@.+/, '')})${about ? '\nAbout: ' + about : ''}
+*Número:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
+*Link:* https://wa.me/${who.split`@`[0]}${registered ? '\nAge: ' + age : ''}
+*XP:* Total ${exp} (${exp - min} / ${xp}) [${math <= 0 ? `Para *${usedPrefix}levelup*` : `${math} XP restantes`}]
+*Nível:* ${level}
+*Patente:* ${role}
+*Coins:* ${limit}
+*Registrdo:* ${registered ? 'Sim (' + new Date(regTime) + ')': 'Não'}
+Premium: ${prem ? 'Sim' : 'Não'}${lastclaim > 0 ? '\nÚltimo PD: ' + new Date(lastclaim) : ''}
 `.trim()
     let mentionedJid = [who]
     conn.sendFile(m.chat, pp, 'pp.jpg', str, m, false, { contextInfo: { mentionedJid }})
   }
 }
-handler.help = ['profile [@user]']
+handler.help = ['perfil (@user)']
 handler.tags = ['tools']
-handler.command = /^profile$/i
+handler.command = /^perfil$/i
 module.exports = handler
 

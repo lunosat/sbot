@@ -7,8 +7,8 @@ let handler = async (m) => {
   let url = await uploadImage(media)
   await conn.sendFile(m.chat, global.API('xteam', '/videomaker/shaunthesheep', { url }, 'APIKEY'), 'shaunthesheep.mp4', 'jangan sedih yaa...', m)
 }
-handler.help = ['shaunthesheep']
-handler.tags = ['videomaker']
+//handler.help = ['shaunthesheep']
+//handler.tags = ['videomaker']
 
 handler.command = /^shaunthesheep$/i
 

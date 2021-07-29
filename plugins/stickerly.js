@@ -21,8 +21,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 
 }
-handler.help = ['stikerly <pencarian>']
-handler.tags = ['sticker']
+//handler.help = ['stikerly <pencarian>']
+//handler.tags = ['sticker']
 handler.command = /^(stic?kerly)$/i
 
 handler.limit = true

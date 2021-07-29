@@ -52,7 +52,7 @@ ${[
   // `.trim())
   m.reply(stiker)
 }
-handler.help = ['semoji [tipe] <emoji>']
-handler.tags = ['sticker']
+//handler.help = ['semoji [tipe] <emoji>']
+//handler.tags = ['sticker']
 handler.command = /^s?emo(ji)?$/i
 module.exports = handler

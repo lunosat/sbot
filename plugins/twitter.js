@@ -15,8 +15,8 @@ Format: ${format}
 Size: ${size}
   `.trim(), m)
 }
-handler.help = ['twitter'].map(v => v + ' <url>')
-handler.tags = ['downloader']
+//handler.help = ['twitter'].map(v => v + ' <url>')
+//handler.tags = ['downloader']
 
 handler.command = /^twitter$/i
 

@@ -1,12 +1,12 @@
 // NurNurz
 let handler = async (m, { conn, text }) => {
-   if (!text) throw `Masukan Text Untuk Bio Baru Bot`
+   if (!text) throw `Digite o texto para a nova biografia do Bot.`
      try {
         await conn.setStatus(text)
-        conn.reply(m.chat, 'Sukses Mengganti Bio Bot', m)
+        conn.reply(m.chat, 'Biografia atualizada com sucesso.', m)
      } catch (e) {
        console.log(e)
-       throw `Error`
+       throw `Erro`
      }
 }
 handler.help = ['setbotbio']

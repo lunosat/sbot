@@ -7,8 +7,8 @@ let handler = async (m, { text }) => {
   if (json.message) m.reply(json.message)
   else throw json
 }
-handler.help = ['truth']
-handler.tags = ['fun']
+//handler.help = ['truth']
+//handler.tags = ['fun']
 handler.command = /^(truth|kebenaran|kejujuran)$/i
 //ftwr
 module.exports = handler

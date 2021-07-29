@@ -1,14 +1,14 @@
 let handler = async (m, { conn, usedPrefix }) => {
     let id = m.chat
     conn.vote = conn.vote ? conn.vote : {}
-    if (!(id in conn.vote)) throw `_*tidak ada voting digrup ini!*_\n\n*${usedPrefix}mulaivote* - untuk memulai vote`
+    if (!(id in conn.vote)) throw `_*nenhuma votação ativa neste grupo!*_\n\n*${usedPrefix}votacao* - para iniciar uma votação`
     delete conn.vote[id]
-    m.reply(`Done!`)
+    m.reply(`Pronto!`)
 
 }
-handler.help = ['hapusvote']
+handler.help = ['pvotacao']
 handler.tags = ['vote']
-handler.command = /^(delete|hapus)vote$/i
+handler.command = /^(p|votacao)vote$/i
 handler.group = true
 handler.admin = true
 module.exports = handler
