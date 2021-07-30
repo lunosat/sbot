@@ -18,6 +18,18 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.welcome = isEnable
       break
+    case 'nsfw':
+      if (!m.isGroup) {
+        if (!isOwner) {
+          global.dfail('group', m, conn)
+          throw false
+        }
+      } else if (!isAdmin) {
+        global.dfail('admin', m, conn)
+        throw false
+      }
+      chat.welcome = isEnable
+      break  
     case 'detect':
       if (!m.isGroup) {
         if (!isOwner) {
@@ -158,7 +170,7 @@ ${usedPrefix}disable welcome
 *${type}* foi *${isEnable ? 'ativ' : 'desativ'}ado* ${isAll ? 'para este chat' : isUser ? '' : 'para este chat'}
 `.trim())
 }
-handler.help = ['en', 'dis'].map(v => v + 'able <option>')
+handler.help = ['en', 'dis'].map(v => v + 'able (opção)')
 handler.tags = ['group', 'owner']
 handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
 handler.admin = true
