@@ -28,8 +28,8 @@ ${usedPrefix + command} latinkejawa selamat pagi
             throw er
     }
 }
-handler.help = ['aksara'].map(v => v + ' <opsi> <teks>')
-handler.tags = ['tools']
+//handler.help = ['aksara'].map(v => v + ' <opsi> <teks>')
+//handler.tags = ['tools']
 handler.command = /^aksara$/i
 
 handler.limit = true
