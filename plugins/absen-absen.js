@@ -29,7 +29,7 @@ ${list}
 `, m, { contextInfo: { mentionedJid: absen } })
 }
 handler.help = ['ausente']
-handler.tags = ['absen']
+handler.tags = ['ausen']
 handler.command = /^(ausente|hadir)$/i
 handler.group = true
 module.exports = handler

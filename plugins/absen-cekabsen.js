@@ -25,7 +25,7 @@ ${list}
 `, m, { contextInfo: { mentionedJid: absen } })
 }
 handler.help = ['VerAusentes']
-handler.tags = ['absen']
+handler.tags = ['ausen']
 handler.command = /^verausentes$/i
 handler.group = true
 module.exports = handler

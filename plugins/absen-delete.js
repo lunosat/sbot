@@ -6,7 +6,7 @@ let handler = async (m, { usedPrefix }) => {
     m.reply(`Pronto!`)
 }
 handler.help = ['DelAusentes']
-handler.tags = ['absen']
+handler.tags = ['ausen']
 handler.command = /^(del|hapus)ausentes$/i
 handler.group = true
 handler.admin = true
