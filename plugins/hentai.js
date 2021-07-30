@@ -1,3 +1,4 @@
+let chat = global.db.data.chats[m.chat]
 async function handler(m, { conn, text, args }) {
     if (chat.nsfw == true) {
         m.reply('NSFW = True')
