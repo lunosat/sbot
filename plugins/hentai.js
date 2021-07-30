@@ -1,7 +1,7 @@
-let chat = global.db.data.chats[m.chat]
 async function handler(m, { conn, text, args }) {
+    let chat = global.db.data.chats[m.chat]
     if (chat.nsfw == true) {
-        m.reply('NSFW = True')
+        m.reply('NSFW = True ')
       }
     if (chat.nsfw == false){
         m.reply('NSFW = False')
