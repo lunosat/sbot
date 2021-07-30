@@ -8,7 +8,7 @@ ${pickRandom(['Sim','Talve sim','É possível','Provavelmente não','Não','Impo
 } : {})
 }
 handler.help = ['bot (pergunta)?']
-handler.tags = ['kerang']
+handler.tags = ['fun']
 handler.customPrefix = /(\?$)/
 handler.command = /^bot$/i
 handler.owner = false
