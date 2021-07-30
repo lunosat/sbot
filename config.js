@@ -1,4 +1,4 @@
-global.owner = ['5511973584242', '11950250596'] // Seu número aqui
+global.owner = ['5511973584242', '559991058765'] // Seu número aqui
 global.mods = [] // Precisa de ajuda?
 global.prems = [] // Usuários premium tem coins ilimitados
 global.APIs = { // API Prefix
@@ -13,7 +13,7 @@ global.APIKeys = { // APIKey aqui
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'd90a9e986e18778b',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
-  'https://api.zeks.xyz': 'apivinz',
+  'https://api.zeks.xyz': 'akirahxxx',
   'https://pencarikode.xyz': 'pais'
 }
 
