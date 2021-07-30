@@ -23,6 +23,9 @@ let tags = {
   'host': 'Host',
   'advanced': 'Avançado',
   'info': 'Informações',
+  'ausen': 'Ausência',
+  'audio': 'Áudio',
+  'maker': 'Image Maker',
   '': 'Sem categoria',
 }
 const defaultMenu = {
