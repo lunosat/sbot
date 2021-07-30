@@ -1,7 +1,7 @@
 let handler = async (m, { conn, usedPrefix }) => {
     let id = m.chat
     conn.absen = conn.absen ? conn.absen : {}
-    if (!(id in conn.absen)) throw `_*Tidak ada absen berlangsung digrup ini!*_\n\n*${usedPrefix}mulaiabsen* - untuk memulai absen`
+    if (!(id in conn.absen)) throw `_*Não há ausências neste grupo!*_\n\n*${usedPrefix}causencia* - para criar uma sala`
 
     let d = new Date
     let date = d.toLocaleDateString('id', {
@@ -11,12 +11,12 @@ let handler = async (m, { conn, usedPrefix }) => {
     })
     let absen = conn.absen[id][1]
     let list = absen.map((v, i) => `│ ${i + 1}. @${v.split`@`[0]}`).join('\n')
-    conn.reply(m.chat, `*「 ABSEN 」*
+    conn.reply(m.chat, `*「 Ausêntes 」*
 
-Tanggal: ${date}
+Data: ${date}
 ${conn.absen[id][2]}
 
-┌ *Yang sudah absen:*
+┌ *Pessoas ausêntes:*
 │ 
 │ Total: ${absen.length}
 ${list}
@@ -24,8 +24,8 @@ ${list}
 └────
 `, m, { contextInfo: { mentionedJid: absen } })
 }
-handler.help = ['cekabsen']
+handler.help = ['VerAusentes']
 handler.tags = ['absen']
-handler.command = /^cekabsen$/i
+handler.command = /^verausentes$/i
 handler.group = true
 module.exports = handler
