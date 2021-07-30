@@ -160,7 +160,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       if (!/[01]/.test(command)) throw `
 List option: welcome | delete | public | antilink | autolevelup | detect | document | whitelistmycontacts | restrict | esc | autoread | pconly | gconly | swonly
 
-Contoh:
+Exemplo:
 ${usedPrefix}enable welcome
 ${usedPrefix}disable welcome
 `.trim()
@@ -174,4 +174,5 @@ handler.help = ['en', 'dis'].map(v => v + 'able (opção)')
 handler.tags = ['group', 'owner']
 handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
 handler.admin = true
+handler.owner = true
 module.exports = handler
