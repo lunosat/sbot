@@ -1,5 +1,5 @@
 let handler = (m, { usedPrefix, command, text }) => {
-    if (!text) throw `contoh:\n${usedPrefix + command} 2002 02 25`
+    if (!text) throw `Exemplo:\n${usedPrefix + command} 2002 02 25`
 
     const date = new Date(text)
     if (date == 'Invalid Date') throw date
@@ -12,20 +12,20 @@ let handler = (m, { usedPrefix, command, text }) => {
     const age = ageD.getFullYear() - new Date(1970, 0, 1).getFullYear()
 
     const birthday = [tahun + (+ new Date(1970, bulan - 1, tanggal) > + new Date(1970, birth[1] - 1, birth[2])), ...birth.slice(1)]
-    const cekusia = bulan === birth[1] && tanggal === birth[2] ? `Selamat ulang tahun yang ke-${age} 🥳` : age
+    const cekusia = bulan === birth[1] && tanggal === birth[2] ? `Feliz aniversário de-${age} 🥳` : age
 
     const teks = `
-Lahir : ${birth.join('-')}
-Ultah Mendatang : ${birthday.join('-')}
-Usia : ${cekusia}
-Zodiak : ${zodiac}
+Nascimento: ${birth.join('-')}
+Próximo aniversário: ${birthday.join('-')}
+Idade: ${cekusia}
+Signo: ${zodiac}
 `.trim()
     m.reply(teks)
 }
 handler.help = ['zodiac *2002 02 25*']
 handler.tags = ['tools']
 
-handler.command = /^zodia[kc]$/i
+handler.command = /^sig[no]$/i
 
 module.exports = handler
 
