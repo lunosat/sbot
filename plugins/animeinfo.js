@@ -17,7 +17,7 @@ let animeingfo = `✨️ *Title:* ${title}
 🌐️ *URL*: ${url}`
   conn.sendFile(m.chat, image_url, '', animeingfo, m)
 }
-handler.help = ['anime <judul>']
+handler.help = ['anime (título)']
 handler.tags = ['internet']
 handler.command = /^(anime|animeinfo)$/i
 handler.group = true
