@@ -14,7 +14,7 @@ function handler(m, { groupMetadata }) {
     })
 }
 handler.help = ['casal']
-handler.tags = ['main']
+handler.tags = ['fun']
 handler.command = ['casal']
 handler.group = true
 handler.limit = true
