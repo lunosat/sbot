@@ -29,9 +29,8 @@ module.exports = handler
 function formatDate(n, locale = 'id') {
   let d = new Date(n)
   return d.toLocaleDateString(locale, {
-    weekday: 'long',
     day: 'numeric',
-    month: 'long',
+    month: 'numeric',
     year: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
