@@ -22,7 +22,7 @@ ${members > 1 ? `${members - reads.length - deliveries.length} restantes` : ''}
 handler.help = ['lidapor']
 handler.tags = ['group']
 
-handler.command = /^lidaporr$/
+handler.command = /^lidapor$/
 
 module.exports = handler
 
