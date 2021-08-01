@@ -158,7 +158,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break
     default:
       if (!/[01]/.test(command)) throw `
-List option: welcome | delete | public | antilink | autolevelup | detect | document | whitelistmycontacts | restrict | esc | autoread | pconly | gconly | swonly
+Lista de opções: welcome | delete | public | antilink | autolevelup | detect | document | whitelistmycontacts | restrict | esc | autoread | pconly | gconly | swonly
 
 Exemplo:
 ${usedPrefix}enable welcome
