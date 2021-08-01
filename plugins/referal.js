@@ -1,7 +1,7 @@
 const crypto = require('crypto')
 
 const xp_first_time = 2500
-const xp_link_creator = 15000
+const xp_link_creator = 1500
 const xp_bonus = {
     5: 30000,
    10: 70000,
@@ -35,15 +35,15 @@ Alguém utilizou seu código de referência
     let command_text = `${usedPrefix}ref ${code}`
     let command_link = `wa.me/${conn.user.jid.split('@')[0]}?text=${encodeURIComponent(command_text)}`
     let share_text = `
-Você receberá ${xp_first_time} XP para cada um que utilizar seu código de referência
+Você receberá ${xp_first_time} XP para cada um que utilizar seu código de referência\n\n
 
 Código de referência: *${code}*
 
 ${command_link}
 `.trim()
     m.reply(`
-Você receberá ${xp_link_creator} para cada um que utilizar seu código de referência
-${users[m.sender].ref_count} pessoas usaram seu código de referência
+Você receberá ${xp_link_creator} para cada um que utilizar seu código de referência.\n\n
+${users[m.sender].ref_count} pessoa(s) utilizaram seu código de referência.
 
 Seu código de referência: ${code}
 
