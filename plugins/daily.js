@@ -4,7 +4,7 @@ let handler = async (m, { isPrems }) => {
   let time = global.db.data.users[m.sender].lastclaim + 86400000
   if (new Date - global.db.data.users[m.sender].lastclaim < 86400000) throw `Você já recebeu seu pagamento diário hoje\nEspere por mais ${msToTime(time - new Date())}`
   global.db.data.users[m.sender].exp += isPrems ? prem : free
-  m.reply(`+${isPrems ? prem : free} XP`)
+  m.reply(`*Pagamento coletado!*\n\n+${isPrems ? prem : free} XP\n\n_Usuários premium recebem mais..._`)
   global.db.data.users[m.sender].lastclaim = new Date * 1
 }
 handler.help = ['pd', 'payday']
