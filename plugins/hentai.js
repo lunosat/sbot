@@ -1,3 +1,4 @@
+const axios = require('axios')
 let handler = async (m, {conn, text, usedPrefix}) => {
   if(!text) throw `*Uso:* ${usedPrefix}hentai (categoria)\n*Exemplo:* ${usedPrefix}hentai anal\n\n*Categorias:*\n_Anal_\nTrap`
   cat = 'anal', 'trap'
