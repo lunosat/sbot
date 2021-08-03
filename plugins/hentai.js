@@ -1,7 +1,8 @@
 const axios = require('axios')
 let handler = async (m, {conn, text, usedPrefix}) => {
+  cat = text
   if(!text) throw `*Uso:* ${usedPrefix}hentai (categoria)\n*Exemplo:* ${usedPrefix}hentai anal\n\n*Categorias:*\n_anal_\n_trap_\n_boobs_\n_blowjob_\n_kuni_\n_spank_\n_classic_`
-  if(text = 'anal'){
+  if(cat === 'anal'){
     try {
         axios.get(`https://nekos.life/api/v2/img/anal`).then(res => {
         conn.sendFile(m.chat, res.data.url, 'anal.gif', `Na mosca `, m)
@@ -12,7 +13,7 @@ let handler = async (m, {conn, text, usedPrefix}) => {
     };
   return false
   }
-  else if(text = 'trap'){
+  else if(cat === 'trap'){
     try {
         axios.get(`https://nekos.life/api/v2/img/trap`).then(res => {
         conn.sendFile(m.chat, res.data.url, 'trap.gif', `Trabequin `, m)
@@ -23,7 +24,7 @@ let handler = async (m, {conn, text, usedPrefix}) => {
     };
   return false
   }
-  else if(text = 'boobs'){
+  else if(cat === 'boobs'){
     try {
         axios.get(`https://nekos.life/api/v2/img/boobs`).then(res => {
         conn.sendFile(m.chat, res.data.url, 'boobs.gif', `Deve ser fofin `, m)
@@ -34,7 +35,7 @@ let handler = async (m, {conn, text, usedPrefix}) => {
     };
     return false
   }
-  else if(text = 'kuni'){
+  else if(cat === 'kuni'){
     try {
       axios.get(`https://nekos.life/api/v2/img/kuni`).then(res => {
       conn.sendFile(m.chat, res.data.url, 'kuni.gif', `Saboroso `, m)
@@ -45,7 +46,7 @@ let handler = async (m, {conn, text, usedPrefix}) => {
   };
   return false
   }
-  else if(text = 'classic'){
+  else if(cat === 'classic'){
     try {
         axios.get(`https://nekos.life/api/v2/img/classic`).then(res => {
         conn.sendFile(m.chat, res.data.url, 'classic.gif', `Cultura `, m)
@@ -56,7 +57,7 @@ let handler = async (m, {conn, text, usedPrefix}) => {
   };
   return false
   }
-  else if(text = 'spank'){
+  else if(cat === 'spank'){
     try {
         axios.get(`https://nekos.life/api/v2/img/spank`).then(res => {
         conn.sendFile(m.chat, res.data.url, 'spank.gif', `Ainnn `, m)
