@@ -1,12 +1,17 @@
 let handler = async (m, { conn, text }) => {
-    if(!text) throw 'Quem será o novo usuário Premium?'
+
     let who
-    if(m.isGroup) who = m.mentionedJid[0]
+    if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text
     else who = m.chat
-    if(!who) throw 'Qual o @user?'
-    let users = global.db.data.users
-    users[who].premium = true
-    conn.reply(m.chat, '*Wow, este usuário agora é Premium!!*')
+    if (!who) throw `Marque quem irá receber filiação premium!`
+    if (global.prems.includes(who.split`@`[0])) throw 'está pessoa já é premium!'
+    global.prems.push(`${who.split`@`[0]}`)
+    conn.reply(m.chat, `@${who.split`@`[0]} agora é um usuário premium!`, m, {
+        contextInfo: {
+            mentionedJid: [who]
+        }
+    })
+
 }
 handler.help = ['addprem (@user)']
 handler.tags = ['owner']

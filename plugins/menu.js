@@ -6,6 +6,7 @@ let tags = {
   'game': 'Jogos',
   'xp': 'Exp & Coins',
   'sticker': 'Stickers',
+  'adult': 'Hentai & Porn',
   'quotes': 'Citações',
   'admin': 'Administrador',
   'group': 'Grupos',
