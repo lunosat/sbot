@@ -5,3 +5,5 @@ let handler = async (m, {conn, text, usedPrefix}) => {
   }
 }
 handler.command = /^hentai$/i
+
+module.exports = handler
