@@ -1,7 +1,7 @@
 let handler = async (m, {conn, text, usedPrefix}) => {
   if(!text) throw `*Uso:* ${usedPrefix}hentai (categoria)\n*Exemplo:* ${usedPrefix}hentai anal\n\n*Categorias:*\n_Anal_\nTrap`
-  categorias = 'anal', 'trap'
-  if(text != categoria) throw 'Categoria inexistente'
+  cat = 'anal', 'trap'
+  if(text != cat) throw 'Categoria inexistente'
   if(text = 'anal'){
     try {
         axios.get(`https://nekos.life/api/v2/img/anal`).then(res => {
