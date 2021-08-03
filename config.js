@@ -21,7 +21,7 @@ global.APIKeys = { // APIKey aqui
 global.packname = 'Sapphire Wabot'
 global.author = 'bit.ly/sapp-wabot'
 
-global.multiplier = 30 // Levelup
+global.multiplier = 20 // Levelup
 
 let fs = require('fs')
 let chalk = require('chalk')
