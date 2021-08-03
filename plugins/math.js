@@ -1,24 +1,24 @@
 let handler = async (m, { conn, args, usedPrefix }) => {
   conn.math = conn.math ? conn.math : {}
   if (args.length < 1) throw `
-Modos: ${Object.keys(modes).join(' | ')}
+*Modos:* ${Object.keys(modes).join(' | ')}
 
-Exemplo: ${usedPrefix}mat facil
+*Exemplo de uso:* ${usedPrefix}mat medio
 `.trim()
   let mode = args[0].toLowerCase()
   if (!(mode in modes)) throw `
-Modos: ${Object.keys(modes).join(' | ')}
+Modo: ${Object.keys(modes).join(' | ')}
 
-Exemplo: ${usedPrefix}mat facil
+*Exemplo de uso:* ${usedPrefix}mat medio
 `.trim()
   let id = m.chat
-  if (id in conn.math) return conn.reply(m.chat, 'Responda a questão anterior para prosseguir', conn.math[id][0])
+  if (id in conn.math) return conn.reply(m.chat, 'Ainda há perguntas sem resposta neste chat', conn.math[id][0])
   let math = genMath(mode)
   conn.math[id] = [
-    await conn.reply(m.chat, `Qual é o resultado de:\n\n *${math.str}*?\n\nTempo: ${(math.time / 1000).toFixed(2)} segundos\n\nBônus de acerto: ${math.bonus} XP`, m),
+    await conn.reply(m.chat, `Qual é o resultado de *${math.str}*?\n\nTempo: ${(math.time / 1000).toFixed(2)} segundos\nBônus de acerto: ${math.bonus} XP`, m),
     math, 4,
     setTimeout(() => {
-      if (conn.math[id]) conn.reply(m.chat, `O tempo acabou!\n\nResposta correta ${math.result}`, conn.math[id][0])
+      if (conn.math[id]) conn.reply(m.chat, `O tempo acabou!\nA resposta é ${math.result}`, conn.math[id][0])
       delete conn.math[id]
     }, math.time)
   ]
@@ -33,10 +33,10 @@ let modes = {
   noob: [-3, 3,-3, 3, '+-', 15000, 10],
   facil: [-10, 10, -10, 10, '*/+-', 20000, 40],
   medio: [-40, 40, -20, 20, '*/+-', 40000, 150],
-  dificil: [-100, 100, -70, 70, '*/+-', 60000, 350],
-  extremo: [-999999, 999999, -999999, 999999, '*/', 99999, 500],
-  impossivel: [-99999999999, 99999999999, -99999999999, 999999999999, '*/', 30000, 600],
-  impossivel2: [-999999999999999, 999999999999999, -999, 999, '/', 30000, 800]
+  dificil: [-100, 100, -70, 70, '*/+-', 60000, 250],
+  extremo: [-999999, 999999, -999999, 999999, '*/', 40000, 400],
+  impossivel: [-99999999999, 99999999999, -99999999999, 999999999999, '*/', 15000, 500],
+  impossivel2: [-999999999999999, 999999999999999, -999, 999, '/', 10000, 600]
 } 
 
 let operators = {
