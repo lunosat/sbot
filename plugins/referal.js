@@ -35,7 +35,7 @@ Alguém utilizou seu código de referência
     let command_text = `${usedPrefix}ref ${code}`
     let command_link = `wa.me/${conn.user.jid.split('@')[0]}?text=${encodeURIComponent(command_text)}`
     let share_text = `
-Você receberá ${xp_first_time} XP para cada um que utilizar seu código de referência\n\n
+Você recebeu ${xp_first_time} XP por utilizar um código de referência\n
 
 Código de referência: *${code}*
 
