@@ -69,6 +69,8 @@ let handler = async (m, {conn, text, usedPrefix}) => {
     return false
   }
 }
+//handler.help = ['hentai (categoria)']
+//handler.tags = ['internet']
 handler.command = /^hentai$/i
 
 module.exports = handler
