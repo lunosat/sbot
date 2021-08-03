@@ -38,6 +38,7 @@ module.exports = {
           if (!isNumber(user.afk)) user.afk = -1
           if (!('afkReason' in user)) user.afkReason = ''
           if (!('banned' in user)) user.banned = false
+          if (!('premium' in user)) user.premium = false
           if (!isNumber(user.level)) user.level = 0
           if (!user.role) user.role = 'Ferro'
           if (!('autolevelup' in user)) user.autolevelup = false
@@ -52,6 +53,7 @@ module.exports = {
           afk: -1,
           afkReason: '',
           banned: false,
+          premium: false,
           level: 0,
           role: 'Ferro',
           autolevelup: false,
