@@ -233,7 +233,7 @@ module.exports = {
           }
           if (plugin.level > _user.level) {
             this.reply(m.chat, `Você necessita de pelo menos nível ${plugin.level} para utilizar este comando.\n\nSeu nível ${_user.level}`, m)
-            continue // If the level has not been reached
+            continue // If the level has not been reached  g
           }
           let extra = {
             match,
