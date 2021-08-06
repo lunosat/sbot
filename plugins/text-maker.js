@@ -1,5 +1,6 @@
 let handler = async (m, {conn, text}) => {
-    conn.reply(m.chat, 'teste')
+    let [txt1, ...txt2] = text.split("|")
+    conn.reply(m.chat, `${txt1}\n${txt2}`)
   }
   
   // this is chat-update
