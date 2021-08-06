@@ -1,6 +1,6 @@
 {
   "name": "s-bot",
-  "version": "3.0",
+  "version": "3.0.0",
   "description": "Sapphire Wabott",
   "depecrated": false,
   "main": "index.js",
