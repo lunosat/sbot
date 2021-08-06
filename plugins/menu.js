@@ -31,7 +31,7 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-╭─「 %me 」
+┌─【 %me 】
 │ Olá, %name!
 │
 │ *%limit Coins*
@@ -46,11 +46,11 @@ const defaultMenu = {
 │ Usuário: %rtotalreg de %totalreg registrados
 │ Web:
 │ https://bot.sapphirenetwork.org
-╰────
+└────
 %readmore`.trimStart(),
-  header: '╭─「 %category 」',
-  body: '│ • %cmd %islimit %isPremium',
-  footer: '╰────\n',
+  header: '┌─【 %category 】',
+  body: '│ ↣ %cmd %islimit %isPremium',
+  footer: '└────\n',
   after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
