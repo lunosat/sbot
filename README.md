@@ -100,29 +100,29 @@ Content-Type: application/json
 
 ### `--big-qr`
 
-If small qr unicode doesn't support
+Se o QR code pequeno não for compatível
 
 ### `--restrict`
 
-Enables restricted plugins (which can lead your number to be **banned** if used too often)
+Ative os plugins restritos (seu número pode ser banido se utilizar da forma erradaa)
 
-* Group Administration `add, kick`
+* Grupos `add, kick`
 
 ### `--img`
 
-Enable image inspector through terminal
+Inspeção de imagens no terminal
 
 ### `--autoread`
 
-If enabled, all incoming messages will be marked as read
+Ler mensagens automaticamente
 
 ### `--nyimak`
 
-No bot, just print received messages and add users to database
+Sem funções, apenas a base de dados contínua funcionando
 
 ### `--test`
 
-**Development** Testing Mode
+**Development** tests
 
 ### `--trace`
 
@@ -138,10 +138,4 @@ conn.logger.level = 'debug'
 
 ---------
 
-<a href="https://api.xteam.xyz"><img src="https://i.ibb.co/7j0vtwz/xlogo.png" width="100" height="100"></a> | [![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo) | [![Ariffb](https://github.com/ariffb25.png?size=100)](https://github.com/ariffb25) | [![Ftwrr](https://github.com/Ftwrr.png?size=100)](https://github.com/Ftwrr) 
-----|----|----|----
-[XTEAM](https://api.xteam.xyz/) | [Nurutomo](https://github.com/Nurutomo) | [Ariffb](https://github.com/ariffb25) | [Ftwrr](https://github.com/Ftwrr)
-Powered by XTEAM | Author / Creator | Most Active Contributor | 2nd Most Active Contributor
-
-
-NOTE: This project will not maintained after `27 June 2021`, that means no update. Feel free to anyone to continue this project :)
+Deixo créditos a @norutomo pela inspiração e ajuda com muita coisa.
