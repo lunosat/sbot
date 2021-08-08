@@ -19,7 +19,7 @@ let tags = {
   'fun': 'Diversão',
   'database': 'Database',
   'vote': 'Votação',
-  'jadibot': 'Bot de teste',
+  'testbot': 'Bot de teste',
   'owner': 'Dono',
   'host': 'Host',
   'advanced': 'Avançado',

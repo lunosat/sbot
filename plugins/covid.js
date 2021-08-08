@@ -1,7 +1,5 @@
 let fetch = require('node-fetch')
 const axios = require('axios')
-const { fetchJson, fetchText } = require('../lib/fetcher')
-const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('../lib/functions')
 const { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, text }) => {
 	
