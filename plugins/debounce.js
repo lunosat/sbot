@@ -7,9 +7,9 @@ let handler  = async (m, { conn }) => {
     process.send('reset')
   } else throw '_eeeeeiiittsssss..._'
 }
-handler.help = ['debounce' + (process.send ? '' : ' (Fora de serviço)')]
+handler.help = ['reiniciar' + (process.send ? '' : ' (Fora de serviço)')]
 handler.tags = ['host']
-handler.command = /^debounce$/i
+handler.command = /^reiniciar$/i
 handler.owner = true
 handler.mods = false
 handler.premium = false
