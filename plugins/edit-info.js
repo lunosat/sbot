@@ -19,9 +19,9 @@ let handler = async function (m, { text, usedPrefix }){
 Verifique em seu *!perfil*`
     .trim())
 }
-handler.help = ['idade']
+handler.help = ['einfo']
 handler.tags = ['main']
 
-handler.command = /^(idade|reg(istrar)?)$/i
+handler.command = /^(einfo|reg(istrar)?)$/i
 
 module.exports = handler
