@@ -23,5 +23,8 @@ handler.help = ['einfo']
 handler.tags = ['main']
 
 handler.command = /^(einfo|reg(istrar)?)$/i
+handler.limit = true
+handler.group = false
+handler.register = true
 
 module.exports = handler
