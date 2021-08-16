@@ -1,6 +1,6 @@
 let handler = async function (m, { text, usedPrefix }){
     let user = global.db.data.users[m.sender]
-    age = text
+    let age = text
     if(user.registered == false) throw `Você deve se registrar para alterar sua idade, use ${usedPrefix}registrar`
     if(!text) throw 'Coloque sua idade'
     age = parseInt(age)
