@@ -1,6 +1,6 @@
 let handler = async function (m, { text, usedPrefix }){
     let user = global.db.data.users[m.sender]
-    let [name, ...age] = text.Spliter(".")
+    let [name, ...age] = text.split(".")
     if(!age && !name) throw `Formato incorreto!\n\nUtilize o formato *${usedPrefix}einfo Nome.Idade*\n\n*Exemplo:* ${usedPrefix}einfo Ana.21`
     //let age = text
     if(user.registered == false) throw `Você deve se registrar para alterar sua idade, use ${usedPrefix}registrar`
