@@ -8,7 +8,7 @@ let handler = async (m, { conn, text }) => {
   return conn.sendContact(m.chat, who, txt || conn.getName(who), m)
 }
 handler.help = ['ctt'].map(v => v + ' @user (Nome do contato)')
-handler.tags = ['']
+handler.tags = ['tools']
 
 handler.command = /^ctt$/
 

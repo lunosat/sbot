@@ -18,7 +18,7 @@ let handler = async (m, { conn, text }) => {
   })
 }
 handler.help = ['fr'].map(v => v + ' (texto)(@user)(texto)')
-handler.tags = ['internet']
+handler.tags = ['tools']
 handler.command = /^(fr|fakereply)$/
 
 module.exports = handler

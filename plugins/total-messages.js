@@ -17,5 +17,8 @@ handler.help = ['tmsgs']
 handler.tags = ['group']
 
 handler.command = /^tmsgs$/i
+handler.limit = true
+handler.group = true
+handler.register = true
 
 module.exports = handler
