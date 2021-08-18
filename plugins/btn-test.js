@@ -3,17 +3,17 @@ let fs = require('fs')
 
     const buttons = [
         {buttonId: '.menu', buttonText: {displayText: 'MENU'}, type: 1},
-        {buttonId: '.profile', buttonText: {displayText: 'PROFILE'}, type: 1},
+        {buttonId: '.perfil', buttonText: {displayText: 'PERFIL'}, type: 1},
     ]
 
     const buttonMessage = {
-        contentText: "Hello my love",
-        footerText: 'test',
+        contentText: "Olá, como posso melhorar seu dia hoje?",
+        footerText: 's-bot 3.4',
         buttons: buttons,
         headerType: 1
     }
     let handler = async (m, { conn }) => {
-    conn.sendMessage(m.chat, buttonMessage, MessageType.buttonsMessage, {quoted : m} )
+    conn.sendMessage(m.chat, buttonMessage, MessageType.buttonsMessage )
 }
 
 
