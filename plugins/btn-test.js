@@ -13,7 +13,7 @@ let handler = async function (m, { text}){
         listType: 1
        }
        
-       const sendMsg = await conn.sendMessage(id, button, MessageType.listMessage)
+       const sendMsg = await conn.sendMessage(m.chat, button, MessageType.listMessage)
 }
 //handler.help = ['einfo']
 //handler.tags = ['main']
