@@ -14,7 +14,7 @@ let fs = require('fs')
     }
     let handler = async (m, { conn }) => {
     conn.sendMessage(m.chat, buttonMessage, MessageType.buttonsMessage, {quoted : m} )
-s}
+}
 
 
 handler.command = /^btn$/i
