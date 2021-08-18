@@ -1,25 +1,35 @@
-let handler = async function (m, { text}){
-    const rows = [
-        {title: 'Row 1', description: "Hello it's description 1", rowId:"rowid1"},
-        {title: 'Row 2', description: "Hello it's description 2", rowId:"rowid2"}
-       ]
-       
-       const sections = [{title: "Section 1", rows: rows}]
-       
-       const button = {
-        buttonText: 'Click Me!',
-        description: "Hello it's list message",
-        sections: sections,
-        listType: 1
-       }
-       conn.sendMessage(m.chat, button, MessageType.listMessage)
-}
-//handler.help = ['einfo']
-//handler.tags = ['main']
+let { MessageType } = require('@adiwajshing/baileys')
+const { sticker } = require('../lib/sticker')
+let fs = require('fs')
 
-handler.command = /^(btn|btn(istrar)?)$/i
-handler.limit = true
+const buttons = [
+{buttonId: '.menu', buttonText: {displayText: 'MENU'}, type: 1},
+{buttonId: '.limit', buttonText: {displayText: 'LIMIT'}, type: 1},
+]
+
+const buttonMessage = {
+contentText: "Ada yang bisa dibantu? \nTekan MENU",
+footerText: 'test doang',
+buttons: buttons,
+headerType: 1
+}
+
+let handler = async (m, { conn }) => {
+conn.sendMessage(m.chat, buttonMessage, MessageType.buttonsMessage, {quoted : m} )
+}
+
+
+handler.command = /^btn$/i
+
+handler.owner = false
+handler.mods = false
+handler.premium = false
 handler.group = false
-handler.register = true
+handler.private = false
+
+handler.admin = false
+handler.botAdmin = false
+
+handler.fail = null
 
 module.exports = handler
