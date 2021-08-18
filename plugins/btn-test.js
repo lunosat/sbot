@@ -4,7 +4,7 @@ let fs = require('fs')
     const buttons = [
         {buttonId: '.menu', buttonText: {displayText: 'MENU'}, type: 1},
         {buttonId: '.perfil', buttonText: {displayText: 'PERFIL'}, type: 1},
-        {buttonId: '.f', buttonText: {displayText: 'F'}, type: 2},
+        {buttonId: '.hentai trap', buttonText: {displayText: 'H'}, type: 1},
     ]
 
     const buttonMessage = {
