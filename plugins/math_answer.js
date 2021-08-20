@@ -1,3 +1,4 @@
+let { MessageType } = require('@adiwajshing/baileys')
 let handler = m => m
 handler.before = async function (m) {
   if (!/^-?[0-9]+(\.[0-9]+)?$/.test(m.text)) return !0
@@ -11,12 +12,49 @@ handler.before = async function (m) {
       global.db.data.users[m.sender].exp += math.bonus
       clearTimeout(this.math[id][3])
       delete this.math[id]
-      m.reply(`*Resposta correta!*\n+${math.bonus} XP`)
+      //list
+      const rows = [
+        {title: 'Noob', description: ' ', rowId: '!mat noob'},
+        {title: 'Fácil', description: ' ', rowId: '!mat facil'},
+        {title: 'Médio', description: ' ', rowid: '!mat medio'},
+        {title: 'Difícil', description: ' ', rowid: '!mat dificil'},
+        {title: 'Extremo', description: ' ', rowid: '!mat extremo'},
+        {title: 'Impossível', description: ' ', rowid: '!mat impossivel'},
+        {title: 'Impossível 2', description: ' ', rowid: '!mat impossivel2'}
+      ]
+      const sections = [{title: 'Nível de dificuldade', rows: rows}]
+
+      const button = {
+        buttonText: 'Jogar novamente',
+        description: `*Resposta correta!*\n\n+${math.bonus} XP`,
+        sections: sections,
+        listType: 1
+      }
+      conn.sendMessage(m.chat, button, MessageType.listMessage)
+      
     } else {
       if (--this.math[id][2] == 0) {
         clearTimeout(this.math[id][3])
         delete this.math[id]
-        m.reply(`*A oportunidade se foi!*\nResposta: *${math.result}*`)
+        const rows = [
+          {title: 'Noob', description: ' ', rowId: '!mat noob'},
+          {title: 'Fácil', description: ' ', rowId: '!mat facil'},
+          {title: 'Médio', description: ' ', rowid: '!mat medio'},
+          {title: 'Difícil', description: ' ', rowid: '!mat dificil'},
+          {title: 'Extremo', description: ' ', rowid: '!mat extremo'},
+          {title: 'Impossível', description: ' ', rowid: '!mat impossivel'},
+          {title: 'Impossível 2', description: ' ', rowid: '!mat impossivel2'}
+        ]
+        const sections = [{title: 'Nível de dificuldade', rows: rows}]
+  
+        const button = {
+          buttonText: 'Jogar novamente',
+          description: `*A oportunidade se foi!*\n\nResposta: *${math.result}*`,
+          sections: sections,
+          listType: 1
+        }
+        conn.sendMessage(m.chat, button, MessageType.listMessage)
+        //m.reply(`*A oportunidade se foi!*\nResposta: *${math.result}*`)
       } else m.reply(`*Resposta incorreta!*\nVocê ainda tem ${this.math[id][2]} chances`)
     }
   }

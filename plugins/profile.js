@@ -1,7 +1,9 @@
+const canvacord = require("canvacord");
 let PhoneNumber = require('awesome-phonenumber')
 let levelling = require('../lib/levelling')
 let handler = async (m, { conn, usedPrefix }) => {
   let pp = './src/avatar_contact.png'
+  let bg = './src/bg_profile.jpg'
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   try {
     pp = await conn.getProfilePicture(who)
@@ -22,12 +24,30 @@ let handler = async (m, { conn, usedPrefix }) => {
 *Nível:* ${level}
 *Patente:* ${role}
 *Coins:* ${limit}
-*Registrdo:* ${registered ? 'Sim (' + new Date(regTime) + ')': 'Não'}
+*Registrado:* ${registered ? 'Sim (' + new Date(regTime) + ')': 'Não'}
 *Premium:* ${prem ? 'Sim' : 'Não'}${lastclaim > 0 ? '\nÚltimo PD: ' + new Date(lastclaim) : ''}
 `.trim()
     let mentionedJid = [who]
-    conn.sendFile(m.chat, pp, 'pp.jpg', str, m, false, { contextInfo: { mentionedJid }})
+    //conn.sendFile(m.chat, pp, 'pp.jpg', str, m, false, { contextInfo: { mentionedJid }})
+    const rank = new canvacord.Rank()
+    .setAvatar(pp)
+    .setCurrentXP(exp - min)
+    .setRequiredXP(xp)
+    .setStatus("dnd")
+    .setProgressBar(['#20b2aa', '#f08080'], "GRADIENT", true)
+    .setUsername(name)
+    .setRank(1, "a", false)
+    .setDiscriminator("0007")
+    .setBackground("IMAGE", bg);
+
+    rank.build()
+    .then(async data => {
+        //canvacord.write(buffer, "RankCard.png");
+        conn.sendFile(m.chat, data, 'rank.png', str, m, false, { contextInfo: { mentionedJid }})
+    });
   }
+
+  
 }
 handler.help = ['perfil (@user)']
 handler.tags = ['tools']

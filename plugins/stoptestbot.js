@@ -6,7 +6,7 @@ let handler  = async (m, { conn }) => {
   }
 }
 handler.help = ['stop']
-handler.tags = ['jadibot']
+handler.tags = ['testbot']
 handler.command = /^(berhenti|stop)$/i
 handler.owner = true
 handler.mods = false

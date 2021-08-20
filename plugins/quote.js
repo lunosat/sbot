@@ -1,5 +1,17 @@
+let { MessageType } = require('@adiwajshing/baileys')
 let handler  = async (m, { conn }) => {
-  conn.reply(m.chat,`“${pickRandom(global.bucin)}”`, m)
+  const buttons = [
+    {buttonId: '.citacao' , buttonText: {displayText: 'Próxima ⏭️'}, type: 1}
+  ]
+  const buttonMessage = {
+    contentText: `“${pickRandom(global.bucin)}”`,
+    footerText: 'Sapphire Network',
+    buttons: buttons,
+    headerType: 1
+
+  }
+  conn.sendMessage(m.chat, buttonMessage, MessageType.buttonsMessage)
+  //conn.reply(m.chat,`“${pickRandom(global.bucin)}”`, m)
 }
 handler.help = ['citacao']
 handler.tags = ['quotes']

@@ -3,7 +3,7 @@ let handler = async (m, { conn, usedPrefix }) => {
   else global.conn.reply(conn.user.jid, `${usedPrefix}testbot ${Buffer.from(JSON.stringify(conn.base64EncodedAuthInfo())).toString('base64')}`, m)
 }
 handler.help = ['getcode']
-handler.tags = ['jadibot']
+handler.tags = ['testbot']
 handler.command = /^(getcode)$/i
 handler.owner = true
 handler.mods = false

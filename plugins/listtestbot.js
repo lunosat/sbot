@@ -3,6 +3,6 @@ async function handler(m, { usedPrefix }) {
   m.reply(users.map(v => 'wa.me/' + v.jid.replace(/[^0-9]/g, '') + `?text=${usedPrefix}menu (${v.name})`).join('\n'))
 }
 handler.command = handler.help = ['listtestbot']
-handler.tags = ['jadibot']
+handler.tags = ['testbot']
 
 module.exports = handler
