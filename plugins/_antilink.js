@@ -8,11 +8,11 @@ handler.before = function (m, { isAdmin, isBotAdmin }) {
   let isGroupLink = linkRegex.exec(m.text)
   
   if (chat.antiLink && isGroupLink) {
-    if(m.sender.isAdmin === true){
+    if(m.isAdmin === true){
       m.reply('TRUE')
       return
     }
-    if(m.sender.isAdmin === false){
+    if(m.isAdmin === false){
       m.reply('FALSE')
       return
     }
