@@ -6,12 +6,15 @@ handler.before = function (m, { isAdmin, isBotAdmin }) {
   let chat = global.db.data.chats[m.chat]
   let user = global.db.data.users[m.sender]
   let isGroupLink = linkRegex.exec(m.text)
-  if(m.sender.isAdmin){
-    m.reply('DEBUG: ADM mandou link')
+  if(m.sender.isAdmin === true){
+    m.reply('TRUE')
     return
   }
+  if(m.sender.isAdmin === false){
+    m.reply('FALSE')
+  }
   if (chat.antiLink && isGroupLink) {
-    m.reply('DEBUG: não ademe')
+    m.reply('ANTILINK ON: É GRUPO')
   }
   return true
 }
