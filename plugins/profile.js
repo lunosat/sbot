@@ -35,7 +35,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     .setRequiredXP(xp)
     .setStatus("dnd")
     .setProgressBar(['#20b2aa', '#f08080'], "GRADIENT", true)
-    .setUsername(name)
+    .setUsername(username)
     .setRank(1, "a", false)
     .setDiscriminator("0007")
     .setBackground("IMAGE", bg);
