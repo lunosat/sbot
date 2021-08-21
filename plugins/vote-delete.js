@@ -3,7 +3,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.vote = conn.vote ? conn.vote : {}
     if (!(id in conn.vote)) throw `_*nenhuma votação ativa neste grupo!*_\n\n*${usedPrefix}votacao* - para iniciar uma votação`
     delete conn.vote[id]
-    m.reply(`Pronto!`)
+    m.reply(`Votação encerrada!`)
 
 }
 handler.help = ['pvotacao']

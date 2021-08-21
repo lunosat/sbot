@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 
     let [reason, upvote, devote] = conn.vote[id]
     let mentionedJid = [...upvote, ...devote]
-    m.reply(`
+    let votos = `
 *「 Votos 」*
 
 *Tema:* ${reason}
@@ -17,10 +17,18 @@ ${upvote.map(u => '@' + u.split('@')[0]).join('\n')}
 *Negativos*
 _Total: ${devote.length}_
 ${devote.map(u => '@' + u.split('@')[0]).join('\n')}
+`
+    const buttons = [
+        {buttonId: '.pvotacao', buttonText: {displayText: 'Encerrar votação'}, type: 1}
+    ]
+    const buttonMessage = {
+        contentText: votos.trim,
+        footerText: 'Sapphire Network',
+        buttons: buttons,
+        headerType: 1
 
-*${usedPrefix}pvotacao* - para encerrar a votação
-
-`.trim(), false, { contextInfo: { mentionedJid } })
+    }
+    conn.sendMessage(m.chat, buttonMessage, MessageType.buttonsMessage)
 }
 handler.help = ['vervotos']
 handler.tags = ['vote']

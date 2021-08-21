@@ -23,5 +23,5 @@ handler.command = /^(ts2)$/i
 handler.limit = true
 
 handler.group = true
-//MadeByAnshul
+
 module.exports = handler

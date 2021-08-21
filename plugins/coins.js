@@ -5,8 +5,8 @@ let handler = async (m) => {
     else who = m.sender
     const buttons = [
         {buttonId: '.buy 5', buttonText: {displayText:'Comprar 5 (1.750 XP)'}, type: 1},
-        {buttonId: '.buy 5', buttonText: {displayText:'Comprar 10 (3.500 XP)'}, type: 1},
-        {buttonId: '.buy 5', buttonText: {displayText:'Comprar 20 (7.000 XP)'}, type: 1}
+        {buttonId: '.buy 10', buttonText: {displayText:'Comprar 10 (3.500 XP)'}, type: 1},
+        {buttonId: '.buy 20', buttonText: {displayText:'Comprar 20 (7.000 XP)'}, type: 1}
     ]
     const buttonMessage = {
         contentText: `${global.db.data.users[who].limit} Coins restantes.`,
