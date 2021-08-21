@@ -65,7 +65,7 @@ handler.tags = ['main']
 
 handler.command = /^(einfo)$/i
 handler.limit = true
-handler.group = false
+handler.group = true
 handler.register = false
 
 module.exports = handler

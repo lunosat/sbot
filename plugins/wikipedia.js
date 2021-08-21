@@ -10,4 +10,5 @@ let handler = async (m, { text }) => {
 handler.help = ['wikipedia'].map(v => v + ' (itém)')
 handler.tags = ['internet']
 handler.command = /^(wiki|wikipedia)$/i
+handler.group = true
 module.exports = handler

@@ -19,6 +19,8 @@ handler.help = ['gimage (dados)', 'imagem (dados)']
 handler.tags = ['internet', 'tools']
 handler.command = /^(gimage|imagem)$/i
 
+handler.group = true
+
 module.exports = handler
 
 function pickRandom(arr) {

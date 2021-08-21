@@ -10,4 +10,6 @@ handler.help = ['vn', 'msg', 'video', 'audio', 'img', 'sticker'].map(v => 'del' 
 handler.tags = ['database']
 handler.command = /^del(vn|msg|video|audio|img|sticker)$/
 
+handler.group = true
+
 module.exports = handler

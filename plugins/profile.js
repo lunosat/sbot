@@ -52,5 +52,8 @@ let handler = async (m, { conn, usedPrefix }) => {
 handler.help = ['perfil (@user)']
 handler.tags = ['tools']
 handler.command = /^perfil$/i
+
+handler.group = true
+
 module.exports = handler
 

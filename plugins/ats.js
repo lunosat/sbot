@@ -6,5 +6,6 @@ handler.help = ['ats (texto)']
 handler.tags = ['sticker']
 
 handler.command = /^ats$/i
+handler.group = true
 
 module.exports = handler

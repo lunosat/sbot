@@ -19,5 +19,6 @@ handler.help = ['whitelist'].map(v => v + ' número, número')
 handler.tags = ['owner']
 handler.command = ['whitelist']
 handler.owner = true
+handler.group = true
 
 module.exports = handler

@@ -25,6 +25,7 @@ handler.help = ['payc @user (quantia)']
 handler.tags = ['xp']
 handler.command = /^payc$/
 handler.rowner = false
+handler.group = true
 
 module.exports = handler
 

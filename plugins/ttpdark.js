@@ -21,5 +21,5 @@ handler.help = ['tsdark (texto)']
 handler.tags = ['sticker']
 handler.command = /^(tsdark)$/i
 handler.limit = true
-//Made By Anshul
+handler.group = true
 module.exports = handler

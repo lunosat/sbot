@@ -33,6 +33,8 @@ handler.help = ['f (legenda|marque)', 'f (url)', 'fgif (legenda|marque)', 'fgif 
 handler.tags = ['sticker']
 handler.command = /^f(igu?ker)?(gif)?(wm)?$/i
 
+handler.group = true
+
 module.exports = handler
 
 const isUrl = (text) => {

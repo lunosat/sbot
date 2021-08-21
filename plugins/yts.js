@@ -22,5 +22,6 @@ ${v.videoCount} video
 handler.help = ['', 'earch'].map(v => 'yts' + v + ' (pesquisa)')
 handler.tags = ['tools']
 handler.command = /^yts(earch)?$/i
+handler.group = true
 
 module.exports = handler

@@ -7,4 +7,7 @@ let handler = async (m) => {
 handler.help = ['coins (@user)']
 handler.tags = ['xp']
 handler.command = /^(coins)$/i
+
+handler.group = true
+
 module.exports = handler

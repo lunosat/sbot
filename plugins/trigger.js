@@ -18,4 +18,6 @@ handler.tags = ['maker']
 
 handler.command = /^(trigger)$/i
 
+handler.group = true
+
 module.exports = handler

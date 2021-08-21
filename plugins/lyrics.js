@@ -19,4 +19,6 @@ handler.help = ['lyrics'].map(v => v + ' (texto)')
 handler.tags = ['internet']
 handler.command = /^(lirik|lyrics|lyric)$/i
 
+handler.group = true
+
 module.exports = handler

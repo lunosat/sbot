@@ -5,7 +5,7 @@ let handler = async(m, { conn, text }) => {
   if (!res.ok) throw await res.text()
   let json = await res.json()
   let { title, members, synopsis, episodes, url, rated, score, image_url, type, start_date, end_date } = json.results[0]
-let animeingfo = `✨️ *Title:* ${title}
+let animeingfo = `✨️ *Título:* ${title}
 🎆️ *Episódios:* ${episodes}
 ➡️ *Lançamento:* ${start_date}
 🔚 *Encerramento:* ${end_date}

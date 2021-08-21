@@ -1,7 +1,7 @@
 let { webp2mp4 } = require('../lib/webp2mp4')
 let { ffmpeg } = require('../lib/converter')
 let handler = async (m, { conn }) => {
-    if (!m.quoted) throw 'Mrque o sticker ou áudio!'
+    if (!m.quoted) throw 'Marque o sticker ou áudio!'
     let mime = m.quoted.mimetype || ''
     if (!/webp|audio/.test(mime)) throw 'Maque o sticker ou áudio!'
     let media = await m.quoted.download()
@@ -23,5 +23,7 @@ handler.help = ['tovideo (marque)']
 handler.tags = ['sticker']
 
 handler.command = ['tovideo']
+
+handler.group = true
 
 module.exports = handler

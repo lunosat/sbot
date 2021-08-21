@@ -15,7 +15,7 @@ handler.command = /^buy([0-9]+)|buy|buyall$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
-handler.group = false
+handler.group = true
 handler.private = false
 
 handler.admin = false

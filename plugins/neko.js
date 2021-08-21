@@ -10,6 +10,9 @@ let handler = async(m, { conn }) => {
 }
 handler.help = ['neko']
 handler.tags = ['internet']
+
+handler.group = true
+
 handler.command = /^neko$/i
 
 module.exports = handler

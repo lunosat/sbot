@@ -13,4 +13,5 @@ let charaingfo = `*Nome:* ${name}
 handler.help = ['personagem (nome)']
 handler.tags = ['internet']
 handler.command = /^(chara|personagem)$/i
+handler.group = true
 module.exports = handler

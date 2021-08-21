@@ -22,5 +22,5 @@ handler.help = ['ats2 (texto)']
 handler.tags = ['sticker']
 handler.command = /^(ats2)$/i
 handler.limit = true
-//Made By Anshul
+handler.group = true
 module.exports = handler

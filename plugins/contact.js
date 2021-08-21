@@ -11,5 +11,6 @@ handler.help = ['ctt'].map(v => v + ' @user (Nome do contato)')
 handler.tags = ['tools']
 
 handler.command = /^ctt$/
+handler.group = true
 
 module.exports = handler

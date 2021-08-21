@@ -25,4 +25,6 @@ handler.tags = ['xp']
 
 handler.command = /^levelup$/i
 
+handler.group = true
+
 module.exports = handler

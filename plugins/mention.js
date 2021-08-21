@@ -11,4 +11,6 @@ handler.tags = ['tools']
 
 handler.command = /^mencionar$/i
 
+handler.group = true
+
 module.exports = handler

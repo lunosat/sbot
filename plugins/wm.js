@@ -19,5 +19,6 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['rs (pacote)|(criador)']
 handler.tags = ['sticker']
 handler.command = /^rs$/i
+handler.group = true
 
 module.exports = handler

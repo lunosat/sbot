@@ -15,4 +15,6 @@ handler.tags = ['sticker']
 
 handler.command = ['getexif']
 
+handler.group = true
+
 module.exports = handler

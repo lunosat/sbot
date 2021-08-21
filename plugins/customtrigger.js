@@ -27,4 +27,6 @@ handler.help = ['ctrigger (texto)']
 handler.tags = ['sticker']
 handler.command = /^(custom|c)trigger$/i
 handler.limit = true
+handler.group = true
+
 module.exports = handler

@@ -14,4 +14,6 @@ handler.tags = ['sticker']
 
 handler.command = /^ts$/i
 
+handler.group = true
+
 module.exports = handler

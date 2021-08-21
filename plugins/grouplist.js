@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => {
 handler.help = ['grupos', 'grouplist']
 handler.tags = ['info']
 handler.command = /^(grupo(s|list))$/i
-handler.owner = false
+handler.owner = true
 handler.mods = false
 handler.premium = false
 handler.group = false

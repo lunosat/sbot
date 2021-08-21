@@ -34,5 +34,6 @@ handler.help = ['calc (expressão)']
 handler.tags = ['tools']
 handler.command = /^(calc(ular(e|or))?|kalk(ulator)?)$/i
 handler.exp = 5
+handler.group = true
 
 module.exports = handler

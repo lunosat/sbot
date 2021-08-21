@@ -21,6 +21,8 @@ handler.help = ['fr'].map(v => v + ' (texto)(@user)(texto)')
 handler.tags = ['tools']
 handler.command = /^(fr|fakereply)$/
 
+handler.group = true
+
 module.exports = handler
 
 function copy(obj) {

@@ -12,7 +12,7 @@ let handler = async (m, { usedPrefix, text }) => {
 }
 handler.help = ['causencia (motivo)']
 handler.tags = ['ausen']
-handler.command = /^(c|mulai)ausencia$/i
+handler.command = /^(c)ausencia$/i
 handler.group = true
 handler.admin = true
 module.exports = handler

@@ -36,6 +36,10 @@ handler.tags = ['tools']
 
 handler.command = /^inspecionar$/i
 
+handler.group = true
+
+
+
 module.exports = handler
 
 function formatDate(n, locale = 'id') {

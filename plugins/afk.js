@@ -9,5 +9,6 @@ ${conn.getName(m.sender)} agora está AFK${text ? ': ' + text : ''}
 handler.help = ['afk (motivo)']
 handler.tags = ['main']
 handler.command = /^afk$/i
+handler.group = true
 
 module.exports = handler

@@ -19,5 +19,6 @@ handler.help = ['wallpaper (pesquisa)']
 handler.tags = ['internet']
 handler.command = /^wall(paper)?q?$/i
 handler.limit = true
+handler.group = true
 
 module.exports = handler

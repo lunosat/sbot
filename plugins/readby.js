@@ -24,6 +24,8 @@ handler.tags = ['group']
 
 handler.command = /^lidapor$/
 
+handler.group = true
+
 module.exports = handler
 
 function formatDate(n, locale = 'id') {

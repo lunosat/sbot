@@ -59,4 +59,6 @@ handler.help = ['hentai (categoria)']
 handler.tags = ['adult']
 handler.command = /^hentai$/i
 
+handler.group = true
+
 module.exports = handler

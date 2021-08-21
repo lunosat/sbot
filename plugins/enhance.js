@@ -20,4 +20,6 @@ handler.help = ['hd (mencione|legenda)']
 handler.tags = ['tools']
 handler.command = /^(hd|enhance)$/i
 
+handler.group = true
+
 module.exports = handler

@@ -1,7 +1,7 @@
 let handler = async (m, { conn, usedPrefix }) => {
     let id = m.chat
     conn.vote = conn.vote ? conn.vote : {}
-    if (!(id in conn.vote)) throw `_*nenhuma votação ativa neste grupo!*_\n\n*${usedPrefix}votacao* - para iniciar uma votação`
+    if (!(id in conn.vote)) throw `_*Nenhuma votação ativa neste grupo!*_\n\n*${usedPrefix}votacao* - para iniciar uma votação`
 
     let [reason, upvote, devote] = conn.vote[id]
     let mentionedJid = [...upvote, ...devote]

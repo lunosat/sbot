@@ -8,7 +8,7 @@ Exemplo:
 ${usedPrefix + command} (idioma) (texto)
 ${usedPrefix + command} id your messages
 
-Veriique os idiomas aceitos: https://cloud.google.com/translate/docs/languages
+Verifique os idiomas aceitos: https://cloud.google.com/translate/docs/languages
 `.trim()
 
     let lang = args[0]
@@ -41,5 +41,6 @@ handler.tags = ['tools']
 handler.command = /^(tr(aduzir)?)$/i
 handler.limit = false
 handler.fail = null
+handler.group = true
 handler.exp = 0
 module.exports = handler

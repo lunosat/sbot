@@ -35,6 +35,7 @@ handler.tags = ['owner']
 handler.command = /^status$/i
 
 handler.owner = true
+handler.group = true
 
 module.exports = handler
 

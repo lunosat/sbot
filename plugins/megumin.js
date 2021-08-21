@@ -9,5 +9,7 @@ let handler = async(m, { conn }) => {
 handler.help = ['megumin']
 handler.tags = ['internet']
 handler.command = /^(megumin)$/i
-//ftwrr
+
+handler.group = true
+
 module.exports = handler

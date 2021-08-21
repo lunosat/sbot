@@ -27,6 +27,8 @@ handler.help = ['mat (dificuldade)']
 handler.tags = ['game']
 handler.command = /^mat/i
 
+handler.group = true
+
 module.exports = handler
 
 let modes = {

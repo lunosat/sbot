@@ -37,6 +37,6 @@ handler.help = ['sf (legenda|marque)']
 handler.tags = ['sticker']
 handler.command = /^(sf)$/i
 handler.limit = true
-handler.group = false
+handler.group = true
 handler.register = true
 module.exports = handler

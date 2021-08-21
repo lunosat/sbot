@@ -17,4 +17,6 @@ handler.tags = ['audio']
 
 handler.command = /^to(vn|(ptt)?)$/i
 
+handler.group = true
+
 module.exports = handler

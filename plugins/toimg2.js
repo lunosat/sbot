@@ -16,4 +16,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 handler.help = ['toimg (marque)']
 handler.tags = ['sticker']
 handler.command = ['toimg']
+
+handler.group = true
+
 module.exports = handler

@@ -21,6 +21,8 @@ handler.help = ['figtelegram (url)']
 handler.tags = ['sticker']
 handler.command = /^(f?ig(telegram)?)$/i
 
+handler.group = true
+
 handler.limit = true
 
 module.exports = handler

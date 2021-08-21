@@ -13,7 +13,7 @@ let handler = async (m, { conn, participants, groupMetadata }) => {
         pp = await conn.getProfilePicture(m.chat)
     } catch (e) {
     } finally {
-        let { isBanned, welcome, detect, sWelcome, sBye, sPromote, sDemote, antiLink } = global.db.data.chats[m.chat]
+        let { isBanned, welcome, detect, sWelcome, sBye, sPromote, sDemote, antiLink, nsfw } = global.db.data.chats[m.chat]
         const groupAdmins = getGroupAdmins(participants)
         let listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.split('@')[0]}`).join('\n')
         let text = `*「 Informações do grupo 」*\n
@@ -41,6 +41,7 @@ ${welcome ? '✅' : '❌'} Boas vindas
 ${detect ? '✅' : '❌'} Detect
 ${global.db.data.chats[m.chat].delete ? '❌' : '✅'} Anti Delete
 ${antiLink ? '✅' : '❌'} Anti Link
+${nsfw ? '✅' : '❌'} NSFW
 
 *Config. de mensagens:*
 Boas vindas: ${sWelcome}
@@ -55,7 +56,7 @@ Despromoção: ${sDemote}
 }
 handler.help = ['infogrupo']
 handler.tags = ['group']
-handler.command = /^(gro?upinfo|info(gru?po|gc))$/i
+handler.command = /^(infogp|infogrupo)$/i
 
 handler.group = true
 

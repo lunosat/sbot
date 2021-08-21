@@ -6,4 +6,6 @@ handler.help = ['base64']
 handler.tags = ['tools']
 handler.command = /^base64$/i
 
+handler.group = true
+
 module.exports = handler

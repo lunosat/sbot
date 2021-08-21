@@ -14,4 +14,6 @@ handler.help = ['togif (marque)']
 handler.tags = ['sticker']
 handler.command = ['togif']
 
+handler.group = true 
+
 module.exports = handler

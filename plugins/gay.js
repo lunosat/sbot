@@ -10,4 +10,6 @@ handler.tags = ['maker']
 
 handler.command = /^(gay)$/i
 
+handler.group = true
+
 module.exports = handler

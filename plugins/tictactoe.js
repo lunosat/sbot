@@ -63,4 +63,6 @@ handler.help = ['jogodavelha'].map(v => v + ' (sala personalizada)')
 handler.tags = ['game']
 handler.command = /^(jogodavelha|t{3})$/
 
+handler.group = true
+
 module.exports = handler

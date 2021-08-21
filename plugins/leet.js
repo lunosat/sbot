@@ -16,6 +16,8 @@ function handler(m, { text }) {
 }
 handler.help = ['leet (texto)']
 handler.tags = ['tools']
-handler.command = ['alay', 'leet']
+handler.command = ['leet']
+
+handler.group = true
 
 module.exports = handler

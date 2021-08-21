@@ -35,5 +35,6 @@ ${similarity < 0.89 ? 'Não tenho certeza se está correto.' : ''}
 handler.help = ['qanime (legenda|marque)']
 handler.tags = ['tools']
 handler.command = /^(qanime)$/i
+handler.group = true
 
 module.exports = handler

@@ -16,4 +16,6 @@ handler.tags = ['audio']
 
 handler.command = /^to(mp3|a(udio)?)$/i
 
+handler.group = true
+
 module.exports = handler

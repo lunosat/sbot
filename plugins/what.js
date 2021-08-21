@@ -4,5 +4,6 @@ let handler = async (m, {conn, text}) => {
     }
 }
 handler.command = ['what']
+handler.group = true
 
 module.exports = handler

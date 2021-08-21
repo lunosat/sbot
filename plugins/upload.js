@@ -14,6 +14,7 @@ ${isTele ? '(Sem validade)' : '(Desconhecido)'}`)
 }
 handler.help = ['upload (legenda|marque)']
 handler.tags = ['tools']
-handler.command = /^upload$/i
 
+handler.command = /^upload$/i
+handler.group = true
 module.exports = handler

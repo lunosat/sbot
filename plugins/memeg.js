@@ -21,4 +21,6 @@ handler.help = ['memeg'].map(v => v + '(texto|texto)')
 handler.tags = ['tools']
 handler.command = /^(memeg)$/i
 
+handler.group = true
+
 module.exports = handler

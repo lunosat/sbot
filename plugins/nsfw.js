@@ -13,4 +13,5 @@ let handler = async (m, {conn}) => {
 }
 handler.command = ['nsfw']
 handler.admin = true
+handler.group = true
 module.exports = handler

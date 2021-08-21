@@ -20,5 +20,6 @@ handler.command = /^tmsgs$/i
 handler.limit = true
 handler.group = true
 handler.register = true
+handler.admin = true
 
 module.exports = handler

@@ -19,4 +19,7 @@ let spotifyinfo = `✨️ *Título:* ${title}
 handler.help = ['spotify (musica)']
 handler.tags = ['internet']
 handler.command = /^(spotify|music)$/i
+
+handler.group = true
+
 module.exports = handler

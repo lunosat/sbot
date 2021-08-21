@@ -26,6 +26,9 @@ let handler = async (m, { conn, args }) => {
 handler.help = ['tts (idioma) (texto)']
 handler.tags = ['tools']
 handler.command = /^g?tts$/i
+
+handler.group = true
+
 module.exports = handler
 
 function tts(text, lang = 'id') {

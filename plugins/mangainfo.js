@@ -16,4 +16,7 @@ let mangaingfo = `*Título:* ${title}
 handler.help = ['manga (título)']
 handler.tags = ['internet']
 handler.command = /^(manga)$/i
+
+handler.group = true
+
 module.exports = handler

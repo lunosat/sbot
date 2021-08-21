@@ -22,4 +22,6 @@ handler.help = ['vn', 'msg', 'video', 'audio', 'img', 'sticker'].map(v => 'get' 
 handler.tags = ['database']
 handler.command = /^get(vn|msg|video|audio|img|sticker)$/
 
+handler.group = true
+
 module.exports = handler

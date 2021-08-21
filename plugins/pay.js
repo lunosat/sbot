@@ -25,6 +25,7 @@ handler.help = ['pay @user (quantia)']
 handler.tags = ['xp']
 handler.command = /^pay$/
 handler.rowner = false
+handler.group = true
 
 module.exports = handler
 

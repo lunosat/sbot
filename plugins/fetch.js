@@ -23,5 +23,7 @@ handler.help = ['fetch', 'get'].map(v => v + ' (url)')
 handler.tags = ['internet']
 handler.command = /^(fetch|get)$/i
 
+handler.group = true
+
 module.exports = handler
 
