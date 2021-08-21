@@ -1,5 +1,5 @@
 let { MessageType } = require ('@adiwajshing/baileys')
-let handler = async (m) => {
+let handler = async (m, { conn }) => {
     chat = global.db.data.chats[m.chat]
     const rows = [
         {title: 'Modo NSFW', description: ' ', rowId: '.nsfw'}
