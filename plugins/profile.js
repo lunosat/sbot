@@ -34,10 +34,12 @@ let handler = async (m, { conn, usedPrefix }) => {
     .setCurrentXP(exp - min)
     .setRequiredXP(xp)
     .setStatus("dnd")
-    .setProgressBar(['#20b2aa', '#f08080'], "GRADIENT", true)
+    .setCustomStatusColor('#800080')
+    .setProgressBar(['#20b2aa', '#800080'], "GRADIENT", true)
     .setUsername(username)
     .setRank(1, "a", false)
     .setDiscriminator("0007")
+    .setLevel(level, 'Nível')
     .setBackground("IMAGE", bg);
 
     rank.build()
