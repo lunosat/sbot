@@ -156,9 +156,18 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       global.opts['swonly'] = isEnable
       break
+    case 'viewonce':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn)
+          throw false
+        }
+      }
+      chat.viewonce = isEnable
+      break
     default:
       if (!/[01]/.test(command)) throw `
-Lista de opções: welcome | delete | public | antilink | autolevelup | detect | document | whitelistmycontacts | restrict | esc | autoread | pconly | gconly | swonly
+Lista de opções: welcome | delete | public | antilink | autolevelup | detect | document | whitelistmycontacts | restrict | esc | autoread | pconly | gconly | swonly | viewonce
 
 Exemplo:
 ${usedPrefix}enable welcome
