@@ -1,6 +1,7 @@
 let limit = 30
 let yts = require('yt-search')
 let fetch = require('node-fetch')
+const canvacord = require("canvacord");
 const { servers, yta, ytv } = require('../lib/y2mate')
 let handler = async (m, { conn, command, text, isPrems, isOwner }) => {
   if (!text) throw 'O que deseja?'
@@ -22,15 +23,54 @@ let handler = async (m, { conn, command, text, isPrems, isOwner }) => {
     }
   }
   if (yt === false) throw 'Todos servidores ocupados, tente novamente em breve'
-  let { dl_link, thumb, title, filesize, filesizeF } = yt
+  let { dl_link, thumb, title, filesize, filesizeF, timestamp } = yt
   let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
-  conn.sendFile(m.chat, thumb, 'thumbnail.jpg', `
+
+
+  text = `
 *Título:* ${title}
 *Tamanho:* ${filesizeF}
 *Url:* ${vid.url}
 *${isLimit ? 'Use ': ''}Link:* ${dl_link}
 *Servidor:* ${usedServer}
-`.trim(), m)
+  `
+  const card = new canvacord.Spotify()
+    .setAuthor('Desconhecido')
+    .setAlbum('Desconhecido')
+    .setStartTimestamp('00')
+    .setEndTimestamp('10')
+    .setImage(thumb)
+    .setTitle(title);
+
+  card.build()
+    .then(buffer => {
+        conn.sendFile(m.chat, buffer, 'play.png', text, m)
+    });
+  
+
+
+
+  /*conn.sendFile(m.chat, thumb, 'thumbnail.jpg', `
+*Título:* ${title}
+*Tamanho:* ${filesizeF}
+*Url:* ${vid.url}
+*${isLimit ? 'Use ': ''}Link:* ${dl_link}
+*Servidor:* ${usedServer}
+`.trim(), m)*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let _thumb = {}
 try { if (isVideo) _thumb = { thumbnail: await (await fetch(thumb)).buffer() } }
 catch (e) { }
