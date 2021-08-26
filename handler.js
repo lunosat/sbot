@@ -1,6 +1,7 @@
 let util = require('util')
 let simple = require('./lib/simple')
 let { MessageType } = require('@adiwajshing/baileys')
+const canvacord = require("canvacord");
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -73,6 +74,7 @@ module.exports = {
           if (!('antiLink' in chat)) chat.antiLink = false
           if (!('viewonce' in chat)) chat.viewonce = false
           if (!('nsfw' in chat)) chat.nsfw = false
+          if (!('simi' in chat)) chat.simi = false
         } else global.db.data.chats[m.chat] = {
           isBanned: false,
           welcome: false,
@@ -85,6 +87,7 @@ module.exports = {
           antiLink: false,
           nsfw: false,
           viewonce: false,
+          simi: false,
         }
       } catch (e) {
         console.error(e)
@@ -336,11 +339,36 @@ module.exports = {
           for (let user of participants) {
             let pp = './src/avatar_contact.png'
             try {
-              pp = await this.getProfilePicture(user)
+              pp = await this.getProfilePicture(user) 
             } catch (e) {
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc) :
                 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
+                //////////////////////////////////////
+                /*const rank = new canvacord.Rank()
+                  .setAvatar(pp)
+                  .setCurrentXP()
+                  .setRequiredXP(xp)
+                  .setStatus("dnd")
+                  .setCustomStatusColor('#800080')
+                  .setProgressBar(['#20b2aa', '#800080'], "GRADIENT", true)
+                  .setUsername(username)
+                  .setRank(1, "a", false)
+                  .setDiscriminator("0007")
+                  .setLevel(level, 'Nível')
+                  .setBackground("IMAGE", bg);
+
+                rank.build()
+                .then(async data => {
+                    canvacord.write(buffer, "RankCard.png");
+                    conn.sendFile(m.chat, data, 'rank.png', str, m, false, { contextInfo: { mentionedJid }})
+                    this.sendFile(jid, data, 'rank.jpg', text, null, false, {
+                      contextInfo: {
+                        mentionedJid: [user]
+                      }
+                    })
+                });*/
+    ///////////////////////////////
               this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
                 contextInfo: {
                   mentionedJid: [user]
