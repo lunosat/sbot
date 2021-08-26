@@ -13,7 +13,7 @@ let handler = async (m, {conn, text}) => {
         }
         return
     }
-    if(text === 'simi'){
+    else if(text === 'simi'){
         if(chat.simi === false){
             chat.simi = true
             m.reply('Simi foi ativado para este chat.')
