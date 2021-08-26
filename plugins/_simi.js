@@ -6,7 +6,7 @@ handler.before = async function (m) {
     if(chat.simi === false) return
     let say = m.text
     try{
-        axios.get(`https://api.simsimi.net/v1/?text=${say}&lang=pt`).then(res => {
+        axios.get(`https://api.simsimi.net/v1/?text=${encodeURIComponent(say)}&lang=pt`).then(res => {
             //conn.sendMessage(m.chat, res.result, MessageType.text)
             m.reply(res.data.success)
         })
