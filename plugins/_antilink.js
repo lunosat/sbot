@@ -1,24 +1,25 @@
+let { MessageType } = require('@adiwajshing/baileys')
+const fs = require('fs')
 let handler = m => m
 
 let linkRegex = /chat.whatsapp.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i
-handler.before = function (m, { isAdmin, isBotAdmin }) {
+handler.before = async function (m, { isAdmin, isBotAdmin }) {
   if (m.isBaileys && m.fromMe) return true
   let chat = global.db.data.chats[m.chat]
-  let user = global.db.data.users[m.sender]
   let isGroupLink = linkRegex.exec(m.text)
-  
-  if (chat.antiLink && isGroupLink) {
-    if(m.isAdmin === true){
-      m.reply('TRUE')
-      return
+
+  if (chat.antiLink && isGroupLink && !isAdmin && !m.isBaileys && m.isGroup) {
+    let thisGroup = `https://chat.whatsapp.com/${await conn.groupInviteCode(m.chat)}`
+    if (m.text.includes(thisGroup)) throw false 
+    audio = fs.readFileSync('./src/antilink.mp3'); 
+    conn.sendMessage(m.chat, audio, MessageType.audio, { mimetype: 'audio/mp4', ptt: true })
+    if (global.opts['restrict']) {
+      if (isBotAdmin) this.groupRemove(m.chat, [m.sender])
     }
-    if(m.isAdmin === false){
-      m.reply('FALSE')
-      return
-    }
-    m.reply('ANTILINK ON: É GRUPO')
+    
   }
   return true
 }
 
 module.exports = handler
+
