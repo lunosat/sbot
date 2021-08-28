@@ -9,6 +9,8 @@ let handler = async (m, {conn}) => {
         })
     }
 }
+handler.help = ['ocr (legenda|marque)']
+handler.tags = ['tools']
 handler.command = ['ocr']
 
 module.exports = handler
