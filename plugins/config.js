@@ -3,7 +3,7 @@ let handler = async (m, { conn }) => {
     chat = global.db.data.chats[m.chat]
     const rows = [
         {title: 'Modo NSFW', description: ' ', rowId: '.nsfw'},
-        {title: 'SimSimi', description: ' ', rowid: '.csimi'},
+        {title: 'Simi', description: ' ', rowid: '.simi'}
     ]
     const sections = [{title: 'Configurações', rows: rows}]
 
