@@ -11,7 +11,6 @@ handler.tags = ['premium']
 
 handler.command = /^entrar$/i
 
-handler.premium = false
-handler.owner = true
+handler.premium = true
 
 module.exports = handler

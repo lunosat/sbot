@@ -1,6 +1,6 @@
 global.owner = ['5511973584242', '559991058765', '553189582510'] // Seu número aqui
 global.mods = [] // Precisa de ajuda?
-global.prems = ['558191196010', '5521983720227'] // Usuários premium tem coins ilimitados
+global.prems = ['558191196010', '5521983720227', '556284349638'] // Usuários premium tem coins ilimitados
 global.APIs = { // API Prefix
   // web: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com',
