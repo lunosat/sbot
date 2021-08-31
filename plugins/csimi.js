@@ -1,3 +1,4 @@
+let  { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, {conn}) => {
     chat = global.db.data.chats[m.chat]
     if(chat.vsimi === true){
