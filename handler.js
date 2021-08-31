@@ -75,6 +75,7 @@ module.exports = {
           if (!('viewonce' in chat)) chat.viewonce = false
           if (!('nsfw' in chat)) chat.nsfw = false
           if (!('simi' in chat)) chat.simi = false
+          if (!('vsimi' in chat)) chat.vsimi = false
         } else global.db.data.chats[m.chat] = {
           isBanned: false,
           welcome: false,
@@ -88,6 +89,7 @@ module.exports = {
           nsfw: false,
           viewonce: false,
           simi: false,
+          vsimi: false,
         }
       } catch (e) {
         console.error(e)
