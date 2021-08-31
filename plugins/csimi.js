@@ -25,7 +25,9 @@ let handler = async (m, {conn}) => {
         return
     }
 }
+handler.help = ['simi']
 handler.command = ['simi']
+handler.tags = ['main']
 handler.admin = true
 handler.group = true
 module.exports = handler

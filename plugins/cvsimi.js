@@ -25,7 +25,9 @@ let handler = async (m, {conn}) => {
         return
     }
 }
+handler.help = ['vsimi']
 handler.command = ['vsimi']
+handler.tags = ['main']
 handler.admin = true
 handler.group = true
 module.exports = handler
