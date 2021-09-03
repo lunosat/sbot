@@ -6,7 +6,9 @@ let handler = async (m, { isPrems }) => {
   let time = global.db.data.users[m.sender].lastclaim + 86400000
   if (new Date - global.db.data.users[m.sender].lastclaim < 86400000) throw `Você já recebeu seu pagamento diário hoje\n\nAguarde por mais: ${msToTime(time - new Date())}`
   global.db.data.users[m.sender].exp += isPrems ? prem : free
-  if(user.premium === false){
+  if(isPrems){
+    m.reply(`*Pagamento coletado!*\n\n+${isPrems ? prem : free} XP`)
+  }else{
     const buttons = [
       {buttonId: '.cprem', buttonText: {displayText: 'Obter Premium'}, type: 1}
     ]
@@ -17,8 +19,6 @@ let handler = async (m, { isPrems }) => {
       headerType: 1
     }
     conn.sendMessage(m.chat, buttonsMessage, MessageType.buttonsMessage)
-  }else{
-    m.reply(`*Pagamento coletado!*\n\n+${isPrems ? prem : free} XP`)
   }
   global.db.data.users[m.sender].lastclaim = new Date * 1
 
