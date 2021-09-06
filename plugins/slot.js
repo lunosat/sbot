@@ -12,7 +12,7 @@ ${usedPrefix + command} 100
     let users = global.db.data.users[m.sender]
     let time = users.lastslot + 10000
     if (new Date - users.lastslot < 10000) throw `Aguarde ${msToTime(time - new Date())}`
-    if (taruhan < 1) throw 'Deve aposta no mínimo 1 XP'
+    if (taruhan < 1) throw 'Deve apostar no mínimo 1 XP'
     if (users.exp < taruhan) {
         throw `XP insuficiente!`
     }
@@ -43,10 +43,10 @@ ${usedPrefix + command} 100
     if (a == b && b == c) {
         end = `JACKPOT! 🥳 *+${taruhan + taruhan} XP*`
         users.exp += taruhan
-    } else if (a == b || a == c || b == c) {
+    } /*else if (a == b || a == c || b == c) {
         end = `Você ao menos tentou *+1 XP*`
         users.exp += 1
-    } else {
+    }*/ else {
         end = `Perdeu tudo 😥 *-${taruhan} XP*`
         users.exp -= taruhan
     }
