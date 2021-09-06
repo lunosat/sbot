@@ -17,7 +17,7 @@ handler.before = async function (m) {
             let text = res.data.success
             //text.toString();
             let url = googleTTS.getAudioUrl(`${text}`, {
-                lang: 'pt',
+                lang: 'ja',
                 slow: false,
                 host: 'https://translate.google.com',
                 //conn.sendFile(m.chat, res, 'tts.opus', null, m, true)
