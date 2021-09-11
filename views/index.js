@@ -1,11 +1,11 @@
-window.onload = () => {
-let chat = document.querySelector('div.container-fluid')
-function addMsg(obj) {
-  let html = document.createElement('span')
-  html.className = 'msg'
-  html.innerHTML = obj
-  chat.appendChild(html)
-}
+import Link from 'next/link'
+function Home(){
+    return <div>
+        <h1>Home</h1>
 
-window.onclick = () => addMsg(12)
+        <Link href = '/sobre'>
+            <a>Pagina sobre</a>
+        </Link>
+    </div>
 }
+export default Home

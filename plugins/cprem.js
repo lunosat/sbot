@@ -1,13 +1,26 @@
 let { MessageType } = require('@adiwajshing/baileys')
-let handler = async (m, {conn}) => {
-    users = global.db.data.users[m.sender]
-    let msgSell = `_Olá, para adquirir filiação_ *Premium* _entre em contato com nosso suporte para maiores detalhes._\n\nhttps://wa.me/message/ZAK5F5NE2Q52F1`
+let handler = async (m, {conn, text}) => {
+    user = global.db.data.users[m.sender]
+    let msgSell = `_A compra de Premium está disponível através de nosso site:_ nify.com.br/sbot/premium`
     if(user.premium === true) throw 'Você já é um usuário premium, obrigado :)'
-    m.reply(msgSell)
-    /* const buttons = [
-        {buttonId: '.mpago', buttonText: {displayText: 'Mercado Pago'}, type: 1},
-        {buttonId: '.pix', buttonText: {displayText: 'Pix'}, type: 1},
-        {buttonId: '.premv', buttonText: {displayText: 'Vantagens'}, type: 1}
+    if(text === 'vant'){
+        m.reply(`Vantagens Premium
+
+- Uso ilimitado de comandos (sem consumir coins)
+        
+- Pagamento diário maior (5000XP)
+        
+- 5 SuperCoins (Usada para super comandos, *!entrar* por exemplo) 
+        
+- Preferência em implementações de sugestões
+        
+- Suporte 24/7 
+        
+Este é um sistema que está em seu início, a cada nova atualização traremos novidades`)
+        return
+    }
+    const buttons = [
+        {buttonId: '.cprem vant', buttonText: {displayText: 'Vantagens'}, type: 1}
     ]
     const buttonMessage = {
         contentText: msgSell,
@@ -15,7 +28,7 @@ let handler = async (m, {conn}) => {
         buttons: buttons,
         headerType: 1
     }
-    conn.sendMessage(m.chat, buttonMessage, MessageType.buttonsMessage)*/
+    conn.sendMessage(m.chat, buttonMessage, MessageType.buttonsMessage)
 }
 handler.command = ['cprem']
 

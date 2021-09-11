@@ -43,6 +43,7 @@ module.exports = {
           if (!isNumber(user.level)) user.level = 0
           if (!user.role) user.role = 'Ferro'
           if (!('autolevelup' in user)) user.autolevelup = false
+          if (!isNumber(user.superCoins)) user.superCoins = 0
         } else global.db.data.users[m.sender] = {
           exp: 0,
           limit: 5,
@@ -58,6 +59,7 @@ module.exports = {
           level: 0,
           role: 'Ferro',
           autolevelup: false,
+          superCoins: 0,
         }
 
         let chat = global.db.data.chats[m.chat]

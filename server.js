@@ -1,41 +1,20 @@
-let express = require('express')
-let path = require('path')
-let SocketIO = require('socket.io')
-let qrcode = require('qrcode')
+const express = require('express')
+const next = require('next')
 
-function connect(conn, PORT) {
-    let app = global.app = express()
+const port = parseInt(process.env.PORT, 10) || 3000
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+const handle = app.getRequestHandler()
 
-    app.use(express.static(path.join(__dirname, 'views')))
-    let _qr = 'invalid'
-    app.use(async (req, res) => {
-        res.setHeader('content-type', 'image/png')
-        res.end(await qrcode.toBuffer(_qr))
-    })
-    conn.on('qr', qr => {
-        _qr = qr
-    })
-    
-    let server = app.listen(PORT, () => console.log('App listened on port', PORT))
-    let io = SocketIO(server)
-    io.on('connection', socket => {
-        let { unpipeEmit } = pipeEmit(conn, socket, 'conn-')
-        socket.on('disconnect', unpipeEmit)
-    })
-}
+app.prepare().then(() => {
+  const server = express()
 
-function pipeEmit(event, event2, prefix = '') {
-    let old = event.emit
-    event.emit = function (event, ...args) {
-        old.emit(event, ...args)
-        event2.emit(prefix + event, ...args)
-    }
-    return {
-        unpipeEmit() {
-            event.emit = old
-        }
-    }
-}
+  server.all('*', (req, res) => {
+    return handle(req, res)
+  })
 
-
-module.exports = connect
+  server.listen(port, (err) => {
+    if (err) throw err
+    console.log(`> Ready on http://localhost:${port}`)
+  })
+})
