@@ -10,7 +10,7 @@ let handler = async (m, { isPrems }) => {
     m.reply(`*Pagamento coletado!*\n\n+${isPrems ? prem : free} XP`)
   }else{
     const buttons = [
-      {buttonId: '.cprem', buttonText: {displayText: 'Obter Premium'}, type: 1}
+      {buttonId: '.loja', buttonText: {displayText: '🏪 *Loja* 🏪'}, type: 1}
     ]
     const buttonsMessage = {
       contentText: `*Pagamento coletado!*\n\n+${isPrems ? prem : free} XP`,

@@ -19,7 +19,7 @@ let handler = async (m, { conn, text }) => {
     users[who].limit += poin
 
     m.reply(`(${-poin} Coins) + (${-pjk} Coins (Imposto 2%)) = ( ${-limit} Coins)`)
-    conn.fakeReply(m.chat, `+${poin} Limit`, who, m.text)
+    conn.fakeReply(m.chat, `+${poin} Coins`, who, m.text)
 }
 handler.help = ['payc @user (quantia)']
 handler.tags = ['xp']

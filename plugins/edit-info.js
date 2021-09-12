@@ -32,16 +32,6 @@ let handler = async function (m, { text, usedPrefix }){
     if(age < 5) throw 'Ainda é muito novo para ver o que tem por aqui...'
     user.age = age
     user.name = name 
-    /*
-    m.reply(`Suas informações foram alteradas com sucesso!
-    
-╭─「 Informações 」
-│ Nome: ${name}
-│ Idade: ${age} anos
-╰────
-
-Verifique em seu *!perfil*`
-    .trim()) */
 
     const buttons = [
         {buttonId: '.perfil', buttonText: {displayText: 'Perfil'}, type: 1},

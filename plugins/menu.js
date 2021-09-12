@@ -1,5 +1,6 @@
 let fs = require('fs')
 let path = require('path')
+let {MessageType}  = require('@adiwajshing/baileys')
 let levelling = require('../lib/levelling')
 let tags = {
   'main': 'Principal',
@@ -44,8 +45,8 @@ const defaultMenu = {
 │
 │ Atividade: *%uptime (%muptime)*
 │ Usuário: %rtotalreg de %totalreg registrados
-│ Web:
-│ https://bot.sapphirenetwork.org
+│ Telegram: t.me/nifytech
+│ 
 └────
 %readmore`.trimStart(),
   header: '┌─【 %category 】',
@@ -152,7 +153,23 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.reply(m.chat, text.trim(), m)
+    
+    const buttons = [
+      {buttonId: '.sup', buttonText: {displayText: 'Suporte'}, type: 1},
+      {buttonId: '.loja', buttonText: {displayText: 'Loja'}, type: 1}
+    ]
+    const buttonMessage = {
+      contentText: text.trim(),
+      footerText: 'Ni-Bot',
+      buttons: buttons,
+      headerType: 1
+    }
+
+    conn.sendMessage(m.chat, buttonMessage, MessageType.buttonsMessage)
+    
+    
+    
+    //conn.reply(m.chat, text.trim(), m)
   } catch (e) {
     conn.reply(m.chat, 'Ops, há algo de errado com o menu', m)
     throw e

@@ -1,4 +1,5 @@
-global.owner = ['5511973584242', '559991058765'] // Seu número aqui
+let fs = require('fs')
+global.owner = ['5511973584242'] // Seu número aqui
 global.mods = [] // Precisa de ajuda?
 global.prems = JSON.parse(fs.readFileSync('./src/premium.json')) // Usuários premium tem coins ilimitados
 global.APIs = { // API Prefix
@@ -18,12 +19,11 @@ global.APIKeys = { // APIKey aqui
 }
 
 // Sticker WM
-global.packname = 'Sapphire Wabot'
-global.author = 'bit.ly/sapp-wabot'
+global.packname = 'Ni-Bot'
+global.author = 't.me/nifytech'
 
 global.multiplier = 20 // Levelup
 
-let fs = require('fs')
 let chalk = require('chalk')
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {

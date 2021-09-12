@@ -1,6 +1,6 @@
 
 let handler = async(m, { conn, text }) => {
-    if (!text) throw '_Descreva o erro ou sua denúncia._'
+    if (!text) throw '_Descreva o erro , sua dúvida ou solicitação de reporte (!sup Texto)._'
     if (text.length > 300) throw 'Seja mais breve, utilize no máximo 300 caracteres.'
     const laporan = `*「 REPORTE 」*\nNúmero : wa.me/${m.sender.split`@`[0]}\nDescrição: ${text}`
     for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid && v != '5511973584242@s.whatsapp.net'))
@@ -10,6 +10,6 @@ let handler = async(m, { conn, text }) => {
 }
 handler.help = ['bug', 'reporte'].map(v => v + ' (descrição)')
 handler.tags = ['info']
-handler.command = /^(bug|reporte)$/i
+handler.command = /^(bug|reporte|sup)$/i
 
 module.exports = handler
