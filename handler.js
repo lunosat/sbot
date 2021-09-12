@@ -433,7 +433,7 @@ global.dfail = (type, m, conn) => {
     owner: '_Este comando pode ser utilizado somente pelo dono._',
     mods: '_Este comando pode ser utilizado somente pelos moderadores_',
     premium: '_Este comando está disponível apenas para membros premium_',
-    group: '_Este comando está disponível somente a grupos._\n\nhttps://bit.ly/sapp-wabot',
+    group: '_Este comando está disponível somente a grupos._\n\n_Compre filiação *Premium* através do comando *!loja* para me adicionar a seu grupo.',
     private: 'Este comando pode ser utilizado somente em privado.',
     admin: '_Este comando pode ser utilizado somente pelos administradores do grupo._',
     botAdmin: '_Este comando requer que o bot seja administrador._',
