@@ -13,7 +13,7 @@ handler.all = async function (m) {
 Olá, ${ucapan()}
 
 ${user.banned ? 'Você está banido!' : 'Como posso lhe ajudar hoje??'}
-`.trim(), 'Ni-Bot', user.banned ? 'Loja' : 'Menu', user.banned ? ',loja' : ',menu')
+`.trim(), 'Ni-Bot', user.banned ? 'Loja' : 'Menu', user.banned ? '.loja' : '.menu')
     user.pc = new Date * 1
 }
 
