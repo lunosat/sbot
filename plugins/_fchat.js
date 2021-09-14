@@ -19,7 +19,7 @@ ${user.banned ? 'Você está banido!' : 'Como posso lhe ajudar hoje??'}
 
 module.exports = handler
 function ucapan() {
-    const time = moment.tz('UTC-3').format('HH')
+    const time = moment.tz('GMT-3').format('HH')
     res = "Bom dia"
     if (time >= 4) {
         res = "Bom Dia"
