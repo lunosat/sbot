@@ -44,7 +44,7 @@ module.exports = {
           if (!user.role) user.role = 'Ferro'
           if (!('autolevelup' in user)) user.autolevelup = false
           if (!isNumber(user.superCoins)) user.superCoins = 0
-          if (!IsNumber(user.pesquisa)) user.pesquisa = false
+          if (!isNumber(user.pesquisa)) user.pesquisa = false
         } else global.db.data.users[m.sender] = {
           exp: 0,
           limit: 5,
