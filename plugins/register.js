@@ -30,7 +30,7 @@ Registrado com sucesso!
 handler.help = ['reg', 'registrar'].map(v => v + ' (nome).(idade)')
 handler.tags = ['exp']
 
-handler.command = /^(r|reg(istrar)?)$/i
+handler.command = /^(reg(istrar)?)$/i
 
 module.exports = handler
 

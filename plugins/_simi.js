@@ -10,8 +10,8 @@ handler.before = async function (m) {
     if (!isBaileys) return
     let say = m.text
     try{
-        axios.get(`https://api.simsimi.net/v1/?text=${encodeURIComponent(say)}&lang=pt`).then(res => {
-            m.reply(res.data.success)
+        axios.get(`https://api.simsimi.net/v2/?text=${encodeURIComponent(say)}&lc=pt&cf=true`).then(res => {
+            m.reply(res.data.messages[response])
         })
     } catch(err) {
         console.log(err)

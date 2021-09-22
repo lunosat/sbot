@@ -7,7 +7,8 @@ let handler = async (m, {conn, text}) => {
         text:"Sendzap V1 - Primeiro teste API"
       })
       .then(function (response) {
-        m.reply('Mensagem enviada?');
+      	msg = response.toString()
+        m.reply(msg);
       })
       .catch(function (error) {
         console.log(error);
@@ -17,3 +18,11 @@ let handler = async (m, {conn, text}) => {
 handler.command = ['sendzap']
 
 module.exports = handler
+
+/*
+
+<Head>
+                    <meta httpEquiv='refresh' content='0; URL=https://sendzap.in/'></meta>
+                </Head>
+                
+                */
