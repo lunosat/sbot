@@ -1,5 +1,5 @@
 let fs = require('fs')
-global.owner = ['5511973584242', '557197253350', '558381465775', '5527996456816'] // Seu número aqui
+global.owner = ['5511973584242',' 558381465775', '555191506252'] // Seu número aqui
 global.mods = [] // Precisa de ajuda?
 global.prems = JSON.parse(fs.readFileSync('./src/premium.json')) // Usuários premium tem coins ilimitados
 global.APIs = { // API Prefix
@@ -21,6 +21,8 @@ global.APIKeys = { // APIKey aqui
 // Sticker WM
 global.packname = 'Ni-Bot'
 global.author = 't.me/nifytech'
+
+global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text='
 
 global.multiplier = 20 // Levelup
 

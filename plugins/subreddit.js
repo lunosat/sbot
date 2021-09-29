@@ -26,7 +26,7 @@ let handler = async (m, { conn, text }) => {
   await conn.sendFile(m.chat, json.url, text, json.title, m, false, { thumbnail: Buffer.alloc(0) })
 }
 handler.help = ['subreddit (pesquisa)']
-handler.tags = ['internet']
+handler.tags = ['internet', 'adult']
 handler.command = /^(sr|subreddit)$/i
 
 module.exports = handler
