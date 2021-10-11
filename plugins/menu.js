@@ -366,18 +366,18 @@ function clockString(ms) {
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
 function ucapan() {
-  const time = moment.tz('BRT').format('HH')
+  const time = moment.tz('America/Sao_Paulo').format('HH')
   res = "Bom Dia"
   if (time >= 4) {
     res = "Bom Dia"
   }
-  if (time > 10) {
+  else if (time > 10) {
     res = "Boa tarde"
   }
-  if (time >= 15) {
+  else if (time >= 15) {
     res = "Boa tarde"
   }
-  if (time >= 18) {
+  else if (time >= 18) {
     res = "Boa noite"
   }
   return res

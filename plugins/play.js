@@ -35,8 +35,8 @@ let handler = async (m, { conn, command, text, isPrems, isOwner }) => {
 *Servidor:* ${usedServer}
   `
   const card = new canvacord.Spotify()
-    .setAuthor('Desconhecido')
-    .setAlbum('Desconhecido')
+    .setAuthor('Ni-Bot')
+    .setAlbum('nifytech.com.br')
     .setStartTimestamp('00')
     .setEndTimestamp('10')
     .setImage(thumb)

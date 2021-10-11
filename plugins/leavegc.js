@@ -15,7 +15,7 @@ let handler = async (m, { conn, args, command }) => {
         await m.reply('Deixei o grupo com sucesso.')
     } else {
         if (!m.isGroup) return global.dfail('group', m, conn)
-        await m.reply('Tchau👋, minha estádia aqui terminou.', m.chat) 
+        await m.reply('Tchau 👋, minha estádia aqui terminou.', m.chat) 
         await conn.groupLeave(m.chat)
     }
 }
