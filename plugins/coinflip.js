@@ -33,7 +33,7 @@ let handler = async (m, { conn }) => {
     }
     //m.reply(res.data.coin);
 };
-handler.help = ["coin", "koin"];
+handler.help = ["moeda"];
 handler.tags = ["fun"];
 
 handler.command = ['moeda']
