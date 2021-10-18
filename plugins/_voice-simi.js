@@ -12,12 +12,12 @@ handler.before = async function (m) {
     if (!isBaileys) return
     let say = m.text
     try{
-        axios.get(`https://api.simsimi.net/v1/?text=${encodeURIComponent(say)}&lang=pt`).then(res => {
+        axios.get(`https://api.simsimi.net/v2/?text=${encodeURIComponent(say)}&lc=pt`).then(res => {
             //m.reply(res.data.success)
             let text = res.data.success
             //text.toString();
             let url = googleTTS.getAudioUrl(`${text}`, {
-                lang: 'ja',
+                lang: 'pt',
                 slow: false,
                 host: 'https://translate.google.com',
                 //conn.sendFile(m.chat, res, 'tts.opus', null, m, true)
