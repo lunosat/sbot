@@ -11,7 +11,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 
   } finally {
     let about = (await conn.getStatus(who).catch(console.error) || {}).status || ''
-    let { name, limit, exp, lastclaim, registered, regTime, age, level, role, superCoins } = global.db.data.users[who]
+    let { name, limit, exp, lastclaim, registered, regTime, age, level, role, superCoins, adv } = global.db.data.users[who]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
     let username = conn.getName(who)
     let math = max - xp
@@ -27,6 +27,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 *Super Coins:* ${superCoins}
 *Registrado:* ${registered ? 'Sim (' + new Date(regTime) + ')': 'Não'}
 *Premium:* ${prem ? 'Sim' : 'Não'}${lastclaim > 0 ? '\nÚltimo PD: ' + new Date(lastclaim) : ''}
+*Advertências:* ${adv}
 `.trim()
     let mentionedJid = [who]
     //conn.sendFile(m.chat, pp, 'pp.jpg', str, m, false, { contextInfo: { mentionedJid }})
