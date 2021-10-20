@@ -45,6 +45,7 @@ module.exports = {
           if (!('autolevelup' in user)) user.autolevelup = false
           if (!isNumber(user.superCoins)) user.superCoins = 0
           if (!isNumber(user.pesquisa)) user.pesquisa = false
+          if (!isNumber(user.adv)) user.adv = 0
         } else global.db.data.users[m.sender] = {
           exp: 0,
           limit: 5,
@@ -62,6 +63,7 @@ module.exports = {
           autolevelup: false,
           superCoins: 0,
           pesquisa: false,
+          adv: 0,
         }
 
         let chat = global.db.data.chats[m.chat]
@@ -350,31 +352,14 @@ module.exports = {
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', this.getName(jid)).replace('@desc', groupMetadata.desc) :
                 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-                //////////////////////////////////////
-                /*const rank = new canvacord.Rank()
-                  .setAvatar(pp)
-                  .setCurrentXP()
-                  .setRequiredXP(xp)
-                  .setStatus("dnd")
-                  .setCustomStatusColor('#800080')
-                  .setProgressBar(['#20b2aa', '#800080'], "GRADIENT", true)
-                  .setUsername(username)
-                  .setRank(1, "a", false)
-                  .setDiscriminator("0007")
-                  .setLevel(level, 'Nível')
-                  .setBackground("IMAGE", bg);
+                /*
+              let image = await new Knights.Welcome2()
+                .setAvatar(pp)
+                .setUsername("Akira")
+                .setBg(pp)
+                .setGroupname("Aoba")
+              */
 
-                rank.build()
-                .then(async data => {
-                    canvacord.write(buffer, "RankCard.png");
-                    conn.sendFile(m.chat, data, 'rank.png', str, m, false, { contextInfo: { mentionedJid }})
-                    this.sendFile(jid, data, 'rank.jpg', text, null, false, {
-                      contextInfo: {
-                        mentionedJid: [user]
-                      }
-                    })
-                });*/
-    ///////////////////////////////
               this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
                 contextInfo: {
                   mentionedJid: [user]
@@ -431,11 +416,11 @@ Para desligar este recurso, use
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: '_Este comando pode ser utilizado somente pelo dono global_',
-    owner: '_Este comando pode ser utilizado somente pelo dono._',
+    rowner: '_Este comando pode ser utilizado somente por Nify Agents_',
+    owner: '_Este comando pode ser utilizado somente por Nify Agents._',
     mods: '_Este comando pode ser utilizado somente pelos moderadores_',
-    premium: '_Este comando está disponível apenas para membros premium_',
-    group: '_Este comando está disponível somente a grupos._\n\n_Compre filiação *Premium* através do comando *!loja* para me adicionar a seu grupo.',
+    premium: '_Este comando está disponível apenas para uusuários Premium_',
+    group: '_Este comando está disponível somente a grupos._\n\n_Compre filiação *Premium* através do comando *!loja* para me adicionar a seu grupo._',
     private: 'Este comando pode ser utilizado somente em privado.',
     admin: '_Este comando pode ser utilizado somente pelos administradores do grupo._',
     botAdmin: '_Este comando requer que o bot seja administrador._',
