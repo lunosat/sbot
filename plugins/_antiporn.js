@@ -19,36 +19,37 @@ handler.before = async function (m, { isAdmin, participants, isBotAdmin }) {
     }
     const groupAdmins = getGroupAdmins(participants)
     let listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.split('@')[0]}`).join('\n')
-
-    if (/image/.test(mime)) {
-        let img = await q.download()
-        if (!img) return
-        console.log('Conteúdo recebido, verificando...')
-        let result = await deepai.callStandardApi("content-moderation", {
-            image: img
-        });
-        str = `${result.output.nsfw_score}`
-        var prob = str.substring(2,4);
-        if(prob >= 75 && prob <= 90){
-            m.reply(`Conteúdo adulto detectado com *${prob}%* de certeza.\n\n${listAdmin}`)
-        }
-         
-        if (chat.antiPorn && !isAdmin && !m.isBaileys && m.isGroup && prob >= 90) {
-            
-            //m.reply('Conteúdo adulto detectado com *' + prob + '%* de certeza, administradors notificados.')
-            if (global.opts['restrict']) {
-                if(!isBotAdmin){
-                    m.reply(`Conteúdo adulto detectado com *${prob}%* de certeza, devo ser administradora para aplicar o banimento.\n\n${listAdmin}`)
-                }
-                if (isBotAdmin) {
-                        m.reply('Conteúdo adulto detectado com *' + prob + '%* de certeza, aplicando banimento preventivo.')
-                        this.groupRemove(m.chat, [m.sender])
-                } 
-            } else {
+    if(chat.antiPorn){
+        if (/image/.test(mime)) {
+            let img = await q.download()
+            if (!img) return
+            console.log('Conteúdo recebido, verificando...')
+            let result = await deepai.callStandardApi("content-moderation", {
+                image: img
+            });
+            str = `${result.output.nsfw_score}`
+            var prob = str.substring(2,4);
+            if(prob >= 75 && prob <= 90){
                 m.reply(`Conteúdo adulto detectado com *${prob}%* de certeza.\n\n${listAdmin}`)
             }
-        }
-    } else return 
+            
+            if (chat.antiPorn && !isAdmin && !m.isBaileys && m.isGroup && prob >= 90) {
+                
+                //m.reply('Conteúdo adulto detectado com *' + prob + '%* de certeza, administradors notificados.')
+                if (global.opts['restrict']) {
+                    if(!isBotAdmin){
+                        m.reply(`Conteúdo adulto detectado com *${prob}%* de certeza, devo ser administradora para aplicar o banimento.\n\n${listAdmin}`)
+                    }
+                    if (isBotAdmin) {
+                            m.reply('Conteúdo adulto detectado com *' + prob + '%* de certeza, aplicando banimento preventivo.')
+                            this.groupRemove(m.chat, [m.sender])
+                    } 
+                } else {
+                    m.reply(`Conteúdo adulto detectado com *${prob}%* de certeza.\n\n${listAdmin}`)
+                }
+            }
+        } else return 
+    }
   return true
 }
 
