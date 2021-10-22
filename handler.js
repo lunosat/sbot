@@ -78,6 +78,8 @@ module.exports = {
           if (!('sDemote' in chat)) chat.sDemote = ''
           if (!('delete' in chat)) chat.delete = true
           if (!('antiLink' in chat)) chat.antiLink = false
+          if (!('antiPorn' in chat)) chat.antiPorn = false
+          if (!('antiFlood' in chat)) chat.antiFlood = false
           if (!('viewonce' in chat)) chat.viewonce = false
           if (!('nsfw' in chat)) chat.nsfw = false
           if (!('simi' in chat)) chat.simi = false
@@ -92,6 +94,8 @@ module.exports = {
           sDemote: '',
           delete: true,
           antiLink: false,
+          antiPorn: false,
+          antiFlood: false,
           nsfw: false,
           viewonce: false,
           simi: false,
