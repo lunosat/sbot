@@ -96,7 +96,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             throw false
           }
         }
-        chat.antiporn = isEnable
+        chat.antiPorn = isEnable
         break
     case 'antiflood':
         if (m.isGroup) {
