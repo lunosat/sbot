@@ -1,5 +1,5 @@
 async function handler(m, { conn, text, args }) {
-    m.reply('Olá, seja bem vindo o nosso programa de beta tester, durante um periodo você testará nosso novo sistema e receberá como recompensa uma filiação Premium.\n\nVocê deverá testar e enviar seu feedback de cada novo recurso que for adicionado.\n\nEntre aqui: https://chat.whatsapp.com/CIJ40MZBdVL2ovDHVf4tux')
+    m.reply('Olá, seja bem vindo ao nosso programa de beta testers, durante um periodo você testará nosso novo sistema e receberá como recompensa uma filiação Premium.\n\nVocê deverá testar e enviar seu feedback de cada novo recurso que for adicionado.\n\nEntre aqui: https://chat.whatsapp.com/CIJ40MZBdVL2ovDHVf4tux')
   }
   
   // this is chat-update
