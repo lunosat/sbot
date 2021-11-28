@@ -19,7 +19,7 @@ handler.before = async function (m, { isAdmin, participants, isBotAdmin }) {
     }
     const groupAdmins = getGroupAdmins(participants)
     let listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.split('@')[0]}`).join('\n')
-    if(chat.antiPorn){
+    
         if (/image/.test(mime)) {
             let img = await q.download()
             if (!img) return
@@ -49,7 +49,6 @@ handler.before = async function (m, { isAdmin, participants, isBotAdmin }) {
                 }
             }
         } else return 
-    }
   return true
 }
 
