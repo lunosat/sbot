@@ -1,5 +1,7 @@
+const fs = require('fs')
+
 async function handler(m, { conn, text, args }) {
-    conn.sendFile(m.chat, '../database.json', 'database.json', '', m)
+    conn.sendFile(m.chat, fs.createReadStream('../database.json') , 'database.json', '', m)
   }
   
   // this is chat-update
